@@ -6,6 +6,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
 \title[FYS3120: Problem Set 1]{Generalised Coordinates \\ \hrulefill\small{ FYS3120: Problem Set 1 }\hrulefill}
 \author{Sebastian G. Winther-Larsen}
 \date{\today}
@@ -25,7 +28,7 @@ d = N - M,
 \end{equation}
 where $N$ is the number of coordinates needed to describe every particle or object in the system accuratelym and $M$ is the constraints in the system. $N$ can sometimes be broken down to $N = Dn$, where $D$ is the number of dimension and $n$ is the number of particles.
 
-\subsection{Pendulum with moving anchor}
+\tocless\subsection{Pendulum with moving anchor}
 Subfigure a in figure \ref{fig:mechanicalsystems} shows a pendulum attached to a moving block, which in turn is attached to a spring. The block can in this two-dimensional system be described by two translational coordinates and one rotational coordinates. The mass at in the pendulum is rotationally symmetrical and can therefore be described by two translational coordinates. This gives five, $N=5$, coordinates in total. 
 
 The block is attached to a spring and can only move in a horizontal direction. Furthermore, the block lies flat and is constrained from tilting. The pendulum must remain a fixed distance from its anchoring point at the center of the block. This gives three, $M=3$, constraints in total, and $d = 5 - 3 = 2$ degrees of freedom.
@@ -39,21 +42,21 @@ An appropriate set of generalised coordinates is the horizontal position $x$ of 
 	\label{fig:mechanicalsystems}
 \end{figure}
 
-\subsection{Pendulum attached to spinning disk}
+\tocless\subsection{Pendulum attached to spinning disk}
 Subfigure b in figure \ref{fig:mechanicalsystems} shows a pendulum anchored to a rotating disk, with a set angular velocity $\omega=\dot{\theta}$. Attached to this disk is a pendulum. To describe the disk, two translational coordinates and one rotational coordinate ($\theta$). The mass of the pendulum is a point in two dimensions, thus two translational coordinates are needed to describe it. This analysis yields five, $N=5$, coordinates in total. 
 
 The  disk is mounted fast, and does not move horizontally or vertically. It rotates with a fixed speed, such that $\theta = \omega t$. The mass at the end of the pendulum can be no more than the length of the string away from its anchoring point. This adds up to four, $M=4$, constraints in total and $d = 5-4=1$ degrees of freedom.
 
 A good pick for a generalised coordinate for this system is the angle $\phi$ that the pendulum makes with a straight vertical line through its anchoring point.
 
-\subsection{Makeshift see-saw}
+\tocless\subsection{Makeshift see-saw}
 Subfigure c in figure \ref{fig:mechanicalsystems} shows a straight rod which can tilt without sliding on top of a cylinder, which can roll on a horizontal plane. The cylinder requires two translational coordinates and one rotational coordinates ($\phi$) in order to be described. The rod requires the same, for at total of six, $N=6$, coordinates.
 
 The cylinder can only move horizontally, such that $\Delta y=0$ and is required to roll without slipping, such that $\delta x = s = r\phi$. That is, the length is has rolled is the arc length computed from the change in angle. This will move the rod a length $2s$ in the same direction. The rod can only be moved horizontally in this manner and cannot move vertically. This will change the pivot point of the rod, around which it can still tilt. This gives two constraints for the cylinder and two for the rod, for a total of four, $M=4$, constraints and $d = 6-4=2$ degrees of freedom.
 
 The horizontal position $x$ of the cylinder, and the angle $\theta$ of the rod makes with a horizontal line are sufficient as a set of generalized coordinates.
 
-\subsection{The dreidel}
+\tocless\subsection{The dreidel}
 Subfigure d in figure \ref{fig:mechanicalsystems} shows a spinning top which moves on a horizontal floor. In order to find the degrees of freedom in this situation, I found it to be easier to find the generalised coordinates first. If the tip of the spinning top is constrained to the same point on the plane on which it is spinning, this is an easy matter. We need to know the angle the top is tilted outwards from a centre axis $\theta$, its angular position about this centre axis $\phi$ and the rotation about its own axis $\omega$. This adds up to three generalised coordinates, and the spinning top must have the same number of degrees of freedom.
 
 \section{Double Atwood's engine}
@@ -86,14 +89,22 @@ T 	&= \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 + \frac{1}{2}m_3v_3^2 \\
 	&= \frac{1}{2}m_1\dot{q}_1^2 + \frac{1}{2}m_2(-\dot{q}_1 + \dot{q}_2)^2 + \frac{1}{2}m_3(-\dot{q}_1 - \dot{q}_2)^2 \\
 	&= \frac{1}{2}m_1\dot{q}_1^2 + \frac{1}{2}m_2(\dot{q}_1^2 -2\dot{q}_1\dot{q}_2 + \dot{q}_2^2) + \frac{1}{2}m_3(\dot{q}_1^2 + 2\dot{q}_1\dot{q}_2 + \dot{q}_2^2) \\
 	&= \frac{1}{2}[ (m_1 + m_2 + m_3)\dot{q}_1^2 + (-2m_2 + 2m_3)\dot{q}_1^2 + (m_2+m_3)\dot{q}_2^2 ] \\
-	&= \frac{1}{2}( 7 \dot{q}_1^2 - 2m\dot{q}_1\dot{q}_2 + 3m\dot{q}_2^2)
+	&= \frac{1}{2}( 7 \dot{q}_1^2 - 2m\dot{q}_1\dot{q}_2 + 3m\dot{q}_2^2).
 \end{align*}
 
 The potential energy becomes
 \begin{align*}
 V 	&= -g( m_1y_1 + m_2y_2 + m_3y_3 ) \\
-	&= 
+	&= -g[ 4mq_1 + 2m(l_1 - q_1 + q_2) + m(l_1 - l_2 - q_1 - q_2)] \\
+	&= -g[ (4m - 2m - m)q_1 + (2m - m)q_2 + (2m + m)l_1 + ml_2 ] \\ 
+	&= -g( mq_1 + mq_2 + 3ml_1 + ml_2 ).
 \end{align*}
+The last bit here, $3ml_1 + ml_2$, can be ignored as it is constant. This corresponds to shifting the reference point of the system.
 
+\section{Three rods suspended from the ceiling}
+
+\section{Particle on a plane}
+
+\section{Shaking a chain}
 
 \end{document}
