@@ -1,5 +1,5 @@
 # FYS3120
-Courswork in Classical Mechanics and Electrodynamics
+Coursework in Classical Mechanics and Electrodynamics
 
 ## Problem Sheet 1 (oblig01)
 Generalised coordinates. Finding Lagrangian.
