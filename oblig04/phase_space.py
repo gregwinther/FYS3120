@@ -13,16 +13,26 @@ def conjugate_momentum(theta, H=1):
 
     return P
 
-theta = np.linspace(-1.3*np.pi, 1.3*np.pi, 2500)
+theta = np.linspace(-4, 4, 2500)
 
 
-for H in np.arange(-50,50,10):
+for H in [-12,-7, 0, 20, 30]:
     p = conjugate_momentum(theta, H)
     plt.plot(theta,  p, 'b')
     plt.plot(theta, -p, 'b')
 
+p = conjugate_momentum(theta, 9.81)
+plt.plot(theta,  p, 'r--')
+plt.plot(theta, -p, 'r--')
+
+p = conjugate_momentum(theta, -9.81)
+plt.plot(theta,  p, 'r--')
+plt.plot(theta, -p, 'r--')
+
 plt.title('Hamiltonian phase space')
 plt.xlabel(r'$\theta$', fontsize=14)
 plt.ylabel(r'$p_{\theta}$', fontsize=14)
+plt.xticks([-np.pi, -1.11, 0, 1.11, np.pi],\
+            [r'$-\pi$', r'$\theta_+$',  0 , r'$\theta_-$', r'$\pi$'])
 
 plt.show()

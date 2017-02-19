@@ -13,7 +13,7 @@ critical_omega = np.sqrt(g/R)
 omega_small = 0.5*critical_omega
 omega_large = 1.5*critical_omega
 
-theta = np.linspace(-2*np.pi, 2*np.pi, 1000)
+theta = np.linspace(-(3./2)*np.pi, (3./2)*np.pi, 1000)
 
 W_small = W(theta, omega_small)
 W_large = W(theta, omega_large)
@@ -24,6 +24,8 @@ plt.plot(theta, W_large, label=r'$\omega=1.5\omega_{cr}$')
 plt.title(r'$W(\theta)$')
 plt.xlabel(r'$\theta$')
 plt.ylabel(r'$W(\theta)$')
+plt.xticks([-np.pi, -1.11, 0, 1.11, np.pi],\
+            [r'$-\pi$', r'$\theta_-$',  0 , r'$\theta_+$', r'$\pi$'])
 plt.legend()
 
 plt.show()
