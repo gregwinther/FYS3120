@@ -97,6 +97,58 @@ this equation corresponds to a harmonic oscillator with angular frequency $\omeg
 T_0 = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{2b}{3g}}
 \end{equation}
 
+\subsection{Hamiltonian as constant of motion}
+Since there $L$ has no explicit time dependence, there is a corresponding constant of motion. The Hamiltonian is related to the Lagrangian by the following equation
+\begin{equation}
+\label{eq:hamlang}
+\frac{\partial H}{\partial t} = -\frac{\partial L}{\partial t} = 0.
+\end{equation}
+In this particular case the derivative of the Lagrangian with respect to time is equal to zero. It does not necessarily be so. The time derivative of the Hamiltonian must also be equal to zero, and is therefore a constant of motion. Now to find an expression for the Hamiltonian.
+\begin{align}
+H &= \sum_i \left( \frac{\partial L}{\partial \dot{q}_i} \dot{q}_i\right) - L \nonumber \\
+ &= \frac{1}{3}mb^2\dot{\theta}^2 - \frac{1}{6}mb^2\dot{\theta}^2 - \frac{1}{2}mbg\cos\theta \nonumber \label{eq:hamiltonian} \\
+ &= \frac{1}{6}mb^2\dot{\theta}^2 - \frac{1}{2}mbg\cos\theta \\
+ &= T + V. \nonumber
+\end{align}
+One should take note that the Hamiltionian equals the total energy. The only force acting upon the system is gravity which is conservative. This implies that total energy is conserved, i.e. constant in time.
+
+\subsection{Oscillation around equilibrium}
+At the maximum angles $\theta_0$, the time derivative of the angle must be zero $\dot{\theta} = 0$. This reduces the Hamiltonian in this position to 
+\begin{equation}
+\label{eq:eqmHam}
+H_0 = -\frac{1}{2}mbg \cos\theta_0.
+\end{equation}
+Because the energy i conserved (Hamiltonian is constant of motion) one can set expression \ref{eq:hamiltonian} equal to equation \ref{eq:eqmHam}.
+\begin{align*}
+H &= H_0 \\
+\frac{1}{6}mb^2\dot{\theta}^2 - \frac{1}{2}mbg\cos\theta &= -\frac{1}{2}mbg\cos\theta_0 \\
+\dot{\theta}^2 - \frac{3g}{2}\cos\theta &= - \frac{3g}{b}\cos\theta_0 \\
+\frac{d\theta}{dt} = \dot{\theta} &= \pm \sqrt{\frac{3g}{b}}\sqrt{\cos\theta - \cos\theta_0} \\
+\frac{dt}{d\theta} &= \pm \sqrt{\frac{b}{3g}} \frac{1}{\sqrt{\cos\theta - \cos\theta_0}}
+\end{align*}
+The last step will become apparent soon. From equation \ref{eq:HOperiod} one can set
+\begin{equation}
+\label{eq:H0period2}
+\sqrt{\frac{b}{3g}} = T_0 \frac{1}{2\sqrt{2}\pi}
+\end{equation}
+which can be substituted into the expression above. The time it takes from the equilibrium position to the maximum angle is the sum of all infinitesimal angular displacements. Approximated by an integral this becomes
+\begin{equation*}
+T' = \int_0^{\theta_0}\frac{dt}{d\theta} d\theta = T_0 \frac{1}{2\sqrt{2}\pi}\int_0^{\theta_0}\frac{1}{\sqrt{\cos\theta - \cos\theta_0}}d\theta.
+\end{equation*}
+There are four such periods, $0 \to \theta_0$, $\theta_0 \to 0$, $0 \to -\theta_0$ and $-\theta_0 \to 0$. This means that the full period of the oscillatory motion is four times the integral above.
+\begin{equation*}
+T = 4T' = T_0 \frac{\sqrt{2}}{\pi} \int_0^{\theta_0}\frac{d\theta}{\sqrt{\cos\theta - \cos\theta_0}}.
+\end{equation*}
+The full space of ``swingable angles'' are included by setting $\theta_0 = \pi/2$
+\begin{equation}
+T = T_0\frac{\sqrt{2}}{\pi}\int_0^{\frac{\pi}{2}}\frac{d\theta}{\sqrt{\cos\theta}} = T_0\frac{\sqrt{2}}{\pi} \frac{\Gamma\left(\frac{1}{2} \right)\Gamma\left(\frac{1}{4} \right)}{2\Gamma\left(\frac{3}{4} \right)}
+\end{equation}
+the ratio $T/T_0$ becomes
+\begin{equation}
+\frac{T}{T_0} = \frac{1}{\sqrt{2}\pi}\frac{\Gamma\left(\frac{1}{2} \right)\Gamma\left(\frac{1}{4} \right)}{\Gamma\left(\frac{3}{4} \right)} \approx 1.18.
+\end{equation}
+I had to employ equation 103 on page 160 in K. Rottmann's collection of formulas and identities and a numerical solver to get here.
+
 \section{Rotating pendulum}
 
 \begin{figure}
