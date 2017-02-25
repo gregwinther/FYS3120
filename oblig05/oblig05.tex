@@ -5,6 +5,7 @@
 \usepackage{physics}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -130,7 +131,113 @@ T = \int_{x_a}^{x_b} \sqrt{\frac{1+y'^2}{-2gy}}dx.
 \end{equation}
 If one were to consider this an action integral, then the integrand must therefore be the Lagrangian for the system with $y$ and $y'$ as generalised coordinates
 \begin{equation}
+\label{eq:lagrangian}
 L(y,y') = \sqrt{\frac{1+y'^2}{-2gy}}
 \end{equation}
+
+\subsection{Hamiltonian and Differential Equation for the Problem}
+Notice that the Lagrangian (equation \ref{eq:lagrangian}) does not depend explicitly on $x$, which has taken the role as  $t$ in this problem. It follows from the Lagrangian-Hamiltonian-relationship
+\begin{equation}
+\frac{dH}{dx} = -\frac{dL}{dx} = 0
+\end{equation}
+that the Hamiltonian, $H$, is a constant of motion. Then one can use the conjugate momentum as is given by $p = \frac{\partial L}{\partial y'}$ and write the Hamiltonian as $H = py' - L$. The conjugate momentum is
+\begin{align*}
+\frac{\partial L}{\partial y'} = \frac{1}{\sqrt{-2gy}}\frac{y'}{\sqrt{1+y'^2}}
+\end{align*}
+and the Hamiltonian becomes
+\begin{align*}
+H = py' - L &= \frac{1}{\sqrt{-2gy}}\left(\frac{y'^2}{\sqrt{1+y'^2}} + \sqrt{1+y'^2} \right) \\
+			&= \frac{1}{\sqrt{-2gy}}\frac{1}{\sqrt{1+y'^2}}\left(y'2 - 1 - y'^2 \right)
+\end{align*}
+\begin{align}
+\to (-2gy)(1+y'^2) &= \frac{1}{H^2} \nonumber \\
+(1 + y'^2)y &= -\frac{1}{2gH^2} \nonumber \\
+(1 + y'^2)y &= -k^2 \label{eq:brachODE}.
+\end{align}
+$y(x)$ must satisfy a differential equation given by equation \ref{eq:brachODE}, where $k = \frac{1}{\sqrt{2g}H}$. 
+
+\subsection{Parametric Solution}
+The solution to the Brachistochrone probem can be written in parametric form as
+\begin{align}
+y &= \frac{1}{2}k^2(\theta-\sin\theta), \label{eq:brachsol1} \\
+x &= \frac{1}{2}k^2(\cos\theta - 1), \label{eq:brachsol2}.
+\end{align}
+I am going to show that these indeed is a solution to \ref{eq:brachODE}.
+\begin{equation*}
+y' = \frac{dy}{dx} = \frac{dy}{d\theta}\frac{d\theta}{dx} = \frac{dy}{d\theta}/\frac{dx}{d\theta},
+\end{equation*}
+where
+\begin{align*}
+\frac{dx}{d\theta} &= \frac{1}{2}k^2(1-\cos\theta) = -y, \\
+\frac{dy}{d\theta} &= -\frac{1}{2}k^2\sin\theta, \\
+y' &= \frac{1}{2y}k^2\sin\theta
+\end{align*}
+This can now be inserted into the left hand side of the differential equation
+\begin{align*}
+(1 + y'^2)y &= (1+\frac{1}{4y^2}k^4\sin^2\theta)y \\ 
+			&= \frac{1}{4}\frac{1}{y}(4y^2+k^4\sin^2\theta) \\
+			&= \frac{1}{4}\frac{1}{y}(k^4(\cos\theta-1)^2 + k^4\sin^2\theta) \\
+			&= \frac{1}{4}\frac{1}{y}k^4(\cos^2\theta - 2\cos\theta + 1 + \sin^2\theta) \\
+			&= \frac{1}{y}k^2\frac{1}{2}k^2(1-\cos\theta) \\
+			&= k^2\frac{1}{y}(-y) \\
+			&= -k^2,
+\end{align*}
+and one can see that it equates to the right hand side.
+
+It is worth checking how the  boundary conditions are taken care of in this situation,
+\begin{align*}
+x_a &= 0, \\
+ \rightarrow \theta_a - \sin\theta_a = 0 \rightarrow \theta_a &= 0, \\
+\rightarrow \cos\theta_a &= 1, \\
+ \rightarrow y_a = \frac{1}{2}k^2(\cos\theta-1) &= 0.
+\end{align*}
+So point $A$ is fine. Now to look at point $B$ where the boundary condition is satisfied if the following equations are satisfied,
+\begin{align*}
+x_b = \frac{1}{2}k^2(\theta_b-\sin\theta_b), \\
+y_b = \frac{1}{2}k^2(\cos\theta_b-1). \\
+\end{align*}
+This means that these two equations determine $k$ and $\theta_b$ and that $k$ is no longer an arbitrary constant.
+
+\subsection{Cycloid}
+The solution to the brachistrochrone problem, as given by the parameter equations \ref{eq:brachsol1} and \ref{eq:brachsol2} form a cycloid. This is the curve formed by a point of a rolling circle. I have already plotted such a curve in figure \ref{fig:brach}, but I have additionally made an animation in JavaScript which visualises the nature of a cycloid much better: \url{http://folk.uio.no/sebastwi/FYS3120/cycloid/}. A ``normal'' cycloid is a convex function formed by a circle rolling on the ground, while the solution of this problem is a concave cycloid formed by a circle rolling on the ceiling. 
+
+\subsection{Optimal endpoint}
+Assume the endpoint $B$ is the lowest point on the cycloid. This is the point where the rolling circle that constructs the cycloid has completed a half revolution, or $\theta_b = \pi$. The arc length is the path the circle has travelled given by $x_b = r\theta_b = r\pi$. The point that draws the cycloid must have moved from the top of the circle to the bottom, $y_b = -2r$. The two Cartesian coordinates for point $B$ (lowest point) must therefore have the following relation,
+\begin{equation}
+y_b = -\frac{2}{\pi}x_b
+\end{equation}
+
+The time it takes for the body to get to this point is
+\begin{equation*}
+T = \int_0^{x_b}\sqrt{\frac{1+y'^2}{-2gy}}dx = \int_0^{\pi}\sqrt{\frac{1+y'^2}{-2gy}}\frac{dx}{d\theta}d\theta
+\end{equation*}
+from previous calculations I know that $1-y'^2 = -k^2/y$ and that $dx/d\theta= -y$ 
+\begin{equation}
+\label{eq:cycloidperiod}
+T = \int_0^\pi\sqrt{\frac{k^2}{2gy^2}}(-y)d\theta = \frac{k}{\sqrt{2g}}\int_0^\pi d\theta = \frac{\pi k}{\sqrt{2g}}.
+\end{equation}
+There appears to be a sign error here, but bear in mind that $y<0$, which means that $\sqrt{y^2}=-y$.
+
+It would be nice to compare this with something, like a straight line. A straight line from $A$ to $B$ is given by
+\begin{equation}
+s = \sqrt{x_b^2+y_b^2}=\sqrt{\frac{1}{4}k^4\pi^2-k^4} = k^2\sqrt{\frac{\pi^2}{4}-1}.
+\end{equation}
+At constant acceleration $a$
+\begin{equation*}
+s = \frac{1}{2}aT'^2 \rightarrow T' = \sqrt{\frac{2s}{a}}
+\end{equation*}
+where $a = g\cos\alpha$, and $\alpha$ is the angle between $y$-axis and  the straight line, given by 
+\begin{equation*}
+\cos\alpha = \frac{\abs{y_b}}{s} = \frac{\abs{-k^2}}{k^2\sqrt{\frac{\pi^2}{4}-1}}=\frac{1}{\sqrt{\frac{\pi^2}{4}-1}}.
+\end{equation*}
+Putting everything together,
+\begin{equation}
+T' = \sqrt{\frac{2s}{a}} = \sqrt{\frac{2}{g}k^2\sqrt{\frac{\pi^2}{4}-1}\sqrt{\frac{\pi^2}{4}-1}} =k\sqrt{\frac{2}{g}\left(\frac{\pi^2}{4}-1 \right)}.
+\end{equation}
+In relation to the period for the cycloid path in equation \ref{eq:cycloidperiod} this is
+\begin{equation}
+\frac{T'}{T} = \frac{\frac{\pi k}{\sqrt{2g}}}{k\sqrt{k\frac{2}{g}\left(\frac{\pi^2}{4} +1\right)}} = \frac{\pi}{g}\left(\frac{\pi^2}{4} +1\right) \approx 1.11.
+\end{equation}
+In conclusion, the straight line path takes $1.11$ times longer time than the cycloid path.
 
 \end{document}
