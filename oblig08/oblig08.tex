@@ -1,0 +1,66 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{physics}
+\usepackage{amsmath}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\title{Relativistic Kinematics \\
+	\hrulefill \small{ FYS3120: Problem Set 8 } \hrulefill}
+
+\author[Winther-Larsen]{Sebastian G. Winther-Larsen}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Mirror Mirror on the (Moving) Wall}
+
+A monocromatic light source is at rest in the laboratory and sends photons with frequency $\nu_0$ towards a mirror which has its reflective surface perpendicular to the beam direction. The mirror moves away from the light source with velocity $v$. The transformation formula for four-momentum is given by $p^{\mu} = (E/c, \vb{p})$ and the Planck relation is $E=h\nu$.
+
+\subsection{Light Frequency in Rest Frame of Mirror}
+The relativistic energy of a moving particle is 
+\begin{equation}
+E = \sqrt{p^2c^2 + m^2c^4}.
+\end{equation}
+Because a photon is without mass, the energy of a photon according to the formula above is
+\begin{equation}
+E = pc,
+\end{equation}
+which can be inserted into Planck relation yielding
+\begin{equation}
+p = \frac{h \nu_0}{c}.
+\end{equation}
+This provides an expression for the four vector
+\begin{equation}
+p^\mu = \left(\frac{E}{c}, \vb{p} \right) = \left(\frac{h\nu_0}{c} \right) = (p,p,0,0).
+\end{equation} 
+To get from emitted frequency $\nu_0$ in lab reference frame $S$, to frequency $\nu$ in mirror reference frame $S'$ one needs to take the Lorentz transform 
+\begin{equation}
+p^\mu{}' = L^\mu_{\ \rho} p^\rho,
+\end{equation}
+because the mirror reference frame is just a boost along the $x$-axis, relative to the lab reference frame.
+\begin{equation}
+\begin{pmatrix}
+p^0{}' \\ p^1{}' \\ p^2{}' \\ p^3{}'
+\end{pmatrix}
+=
+\begin{pmatrix}
+\gamma & -\beta\gamma & 0 & 0 \\
+-\beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+p^0 \\ p^1 \\ p^2 \\ p^3
+\end{pmatrix}
+=
+\gamma(1-\beta)
+\begin{pmatrix}
+p \\ p \\ 0 \\ 0
+\end{pmatrix}
+\end{equation}
+
+\end{document}
