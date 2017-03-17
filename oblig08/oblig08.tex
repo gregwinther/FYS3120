@@ -39,12 +39,12 @@ p^\mu = \left(\frac{E}{c}, \vb{p} \right) = \left(\frac{h\nu_0}{c} \right) = (p,
 \end{equation} 
 To get from emitted frequency $\nu_0$ in lab reference frame $S$, to frequency $\nu$ in mirror reference frame $S'$ one needs to take the Lorentz transform 
 \begin{equation}
-p^\mu{}' = L^\mu_{\ \rho} p^\rho,
+p'^\mu = L^\mu_{\ \rho} p^\rho,
 \end{equation}
 because the mirror reference frame is just a boost along the $x$-axis, relative to the lab reference frame.
 \begin{equation}
 \begin{pmatrix}
-p^0{}' \\ p^1{}' \\ p^2{}' \\ p^3{}'
+p'^0 \\ p'^1 \\ p'^2 \\ p'^3
 \end{pmatrix}
 =
 \begin{pmatrix}
@@ -60,7 +60,37 @@ p^0 \\ p^1 \\ p^2 \\ p^3
 \gamma(1-\beta)
 \begin{pmatrix}
 p \\ p \\ 0 \\ 0
-\end{pmatrix}
+\end{pmatrix},
+\end{equation}
+so
+\begin{equation}
+p' = \gamma(1-\beta)p.
+\end{equation}
+The de Broglie relations gives
+\begin{equation}
+p = \frac{h}{\lambda} = \frac{h\nu}{c},
+\end{equation}
+so the frequency of the emitted and reflected light in the rest frame of the mirror must be
+\begin{equation}
+\nu' = \gamma(1-\beta)\nu.
+\end{equation}
+The frequency of the emitted and reflected light must necessarily be the same, due to conservation of momentum.
+
+\subsection{Frequency of Reflected Light in Lab System}
+
+Denoting frequency of reflected light as $\nu_R$ and frequency of emitted light as $\nu_0$, we already have that
+\begin{equation}
+\label{eq:mirrorRF}
+\nu'_R = \gamma(1-\beta)\nu_0,
+\end{equation}
+in the mirror rest frame. Similarly, the frequency of reflected light in laboratory rest frame is
+\begin{equation}
+\label{eq:labRF}
+\nu_R = \gamma(1-\beta)\nu'_R.
+\end{equation}
+Inserting \ref{eq:mirrorRF} into \ref{eq:labRF} yields
+\begin{equation}
+\nu_R = \gamma^2(1-\beta)^2\nu_0 = \frac{(1-\beta)^2}{1-\beta^2}\nu_0 = \frac{(1-\beta)^2}{(1+\beta)(1-\beta)}\nu_0 = \frac{1-\beta}{1+\beta}\nu_0
 \end{equation}
 
 \end{document}
