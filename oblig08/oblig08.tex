@@ -2,10 +2,11 @@
 
 \usepackage{physics}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
-\title{Relativistic Kinematics \\
+\title[Relativistic Kinematics]{Relativistic Kinematics \\
 	\hrulefill \small{ FYS3120: Problem Set 8 } \hrulefill}
 
 \author[Winther-Larsen]{Sebastian G. Winther-Larsen}
@@ -92,5 +93,66 @@ Inserting \ref{eq:mirrorRF} into \ref{eq:labRF} yields
 \begin{equation}
 \nu_R = \gamma^2(1-\beta)^2\nu_0 = \frac{(1-\beta)^2}{1-\beta^2}\nu_0 = \frac{(1-\beta)^2}{(1+\beta)(1-\beta)}\nu_0 = \frac{1-\beta}{1+\beta}\nu_0
 \end{equation}
+
+\section{Relativistic Collision}
+\begin{figure}
+\centering
+	\includegraphics[width=0.8\textwidth]{collision.png}
+	\caption{Collision between two particles of mass $m$ resulting in a particle with mass $M$}
+	\label{fig:collision}
+\end{figure}
+
+Figure \ref{fig:collision} shows a particle with mass $m$ and (relativistic) kinetic energy $V$ in the laboratory frame $S$. The particles is moving towards another particle, with the same mass $m$, which is at rest in $S$.
+
+\subsection{Velocity of First Particle}
+Relativistic kinetic energy is given by
+\begin{equation}
+\label{eq:relkinenergy}
+T = (\gamma-1)mc^2.
+\end{equation}
+Introducing the dimensionless quantity $\alpha = T/mc^2$,
+\begin{align*}
+\alpha = \frac{T}{mc^2} = \frac{(\gamma - 1)mc^2}{mc^2} &= (\gamma-1) = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} - 1 \\
+\alpha + 1 &= \frac{1}{\sqrt{1-\beta^2}} \\
+1 - \beta^2 &= \frac{1}{(\alpha + 1)^2} \\
+\beta &= \pm \sqrt{1 - \frac{1}{(\alpha + 1)^2}} \\
+v &= \pm c \sqrt{1-(\alpha + 1)^{-2}},
+\end{align*}
+yields an expression for the velocity of the moving particle.
+
+\subsection{Compound Particle of Perfectly Inelastic Collision}
+Assuming that the collision is completely inelastic, they will ``stick together'' after the collision, and form a new compounded particle. The momentum is conserved so that
+\begin{equation}
+\label{eq:momentumconservation1}
+\left(\frac{E_1}{c}, \vb{p}_1 \right) + \left(\frac{E_2}{c}, \vb{p}_2 \right) = \left(\frac{E_3}{c}, \vb{p}_3 \right) ,
+\end{equation}
+where $E_1 = \gamma(v_1)mc^2$, $E_2 = \gamma(v_2)mc^2$ and $E_3 = \gamma(v_3)mc^2$. The second particle is not moving relative to the reference frame. Since $v_2=0$, $\gamma(v_2)=1$ and $\vb{p}_2 = \vb{0}$. Equation \ref{eq:momentumconservation1} now reads
+\begin{equation}
+\label{eq:momentumconservation2}
+\left(\gamma(v_1)mc + mc, \vb{p}_1\right) = \left(\gamma(v_3)Mc, \vb{p}_3\right).
+\end{equation}
+Let's first look at the first elements of the four-vectors in equation \ref{eq:momentumconservation2}:
+\begin{equation}
+(\gamma(v_1)+1)mc = \gamma(v_3)Mc.
+\end{equation}
+This yields the mass of the large particle as
+\begin{equation}
+\label{eq:largemass}
+M = \frac{\gamma(v_1) + 1}{\gamma(v_3)}m.
+\end{equation}
+
+Of the three elements left in the four-vectors in equation \ref{eq:momentumconservation2} two are zero. What remains is
+\begin{equation}
+\gamma(v_1)mv_1 = \gamma(v_3)Mv_3,
+\end{equation}
+inserting the mass from equation \ref{eq:largemass} gives
+\begin{equation}
+\gamma(v_1)mv_1 = (\gamma(v_1) + 1)mv_3.
+\end{equation}
+Rearranging this expression gives the velocity of the compounded particle
+\begin{equation}
+v_3 = \frac{\gamma(v_1)}{\gamma(v_1)+1}v_1 = \frac{\alpha}{\alpha+1}v_1
+\end{equation}
+
 
 \end{document}
