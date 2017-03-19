@@ -130,6 +130,7 @@ where $E_1 = \gamma(v_1)mc^2$ and $E_2 = \gamma(v_2)mc^2$. Since $v_2 = 0$, $\ga
 \begin{align}
 \frac{E_1 + E_2}{c} &= \frac{E_3}{c} \nonumber \\
 E_1 + E_2 &= E_3 \nonumber \\
+\label{eq:compoundedenergy1}
 E = E_3 =  \gamma mc^2 + mc^2 &= (1 + \gamma)mc^2.
 \end{align}
 
@@ -182,5 +183,72 @@ The initial kinetic energy of the system is $T_1 = (\gamma-1)mc^2$ and the final
 
 \subsection{Elastic Collision}
 In the rest of this exercise the assumption will be that the particles collide elastically instead. This means that the particles don't form a compounded particle after the collision, but remain the same with no change in their masses. The collision happens in such a way that the particles after the collision make the same angle, $\theta$, with the $x$-axis in the lab frame $S$.
+
+The momentum of the first particle after the collision will be
+\begin{equation}
+\vb{p}_1 = p_1(\cos\theta, \sin\theta),
+\end{equation}
+and the momentum of the second particle after the collision will be
+\begin{equation}
+\vb{p}_2 = p_2(\cos\theta, -\sin\theta).
+\end{equation}
+Conservation of momentum gives
+\begin{equation}
+(p_1, 0) = ((p_1 + p_2)\cos\theta,\ (p_1 - p2)\sin\theta).
+\end{equation}
+The second component gives
+\begin{equation}
+0 = (p_1 - p_2)\sin\theta \rightarrow 
+\begin{cases} 
+p_1 = p_2 \\
+\sin\theta = 0
+\end{cases}
+\end{equation}
+of which the first case seems more likely, as $\sin\theta = 0$ would imply no angle between the particles at all. Therefore, the magnitude of the momenta of the two particles after the collision must be the same.
+
+The momenta of the particles is the same after the collision,
+\begin{equation}
+\gamma_1 m v_1 = \gamma_2 m v_2 .
+\end{equation}
+This means that both velocities and Lorentz factors are the same, ergo
+\begin{equation}
+E_1 = \gamma_1 mc^2 = \gamma_2 mc^2 = E_2.
+\end{equation} 
+
+\subsection{Energy and Momentum}
+The energy of the two particles (equation \ref{eq:compoundedenergy1}) should be the same as the combined energy of the two particles, due to conservation of four-momentum.
+\begin{equation}
+\label{eq:elasticenergy}
+E_{Compound} = 2E = (\gamma + 1)mc^2 \rightarrow E = \frac{1}{2}(\gamma + 1)mc^2.
+\end{equation}
+Making sure the three other elements of the four-momentum vectors are conserved as well gives the momentum of the two particles after the collision
+\begin{equation}
+\label{eq:elasticmomentum}
+\vb{p}_1 = (2\cos\theta, 0) \rightarrow \gamma mv = 2p\cos\theta \rightarrow p = \frac{\gamma mv}{2\cos\theta}
+\end{equation}
+
+\subsection{Collision Angle}
+Starting with the Energy-momentum relation
+\begin{equation*}
+E^2 = pc^2 + m^2c^4,
+\end{equation*}
+inserting energy from \ref{eq:elasticenergy} and momentum from \ref{eq:elasticmomentum} gives
+\begin{align*}
+\frac{1}{4}(\gamma + 1)^2m^2c^4 &= \frac{\gamma^2m^2v^2c^2}{4\cos^2\theta} + m^2c^4 \\
+\frac{\gamma^2m^2v^2c^2}{\cos^2\theta} &= (\gamma +1 )^2m^2c^4 - 4m^2c^4 \\
+\frac{\gamma^2m^2v^2c^2}{\cos^2\theta} &= ((\gamma + 1) - 4)m^2c^4 \\
+\cos^2\theta &= \frac{v^2}{c^2}\frac{\gamma^2}{(\gamma + 1)^2 - 4}, 
+\end{align*}
+inserting expressions for $\beta = v/c$ and $\alpha$ from section 2.a gives
+\begin{align*}
+\cos^2\theta &= \left(1 - \frac{1}{(\alpha +1)^2} \right) \frac{(\alpha + 1)^2}{(\alpha + 2)^2 - 4}\\
+			&= \frac{(\alpha + 1)^2 - 1}{(\alpha + 2)^2 -4} = \frac{\alpha^2 + 2\alpha}{\alpha^2 + 4\alpha} = \frac{\alpha + 2}{\alpha + 4} \\
+\rightarrow \theta &= \arccos \sqrt{\frac{\alpha + 2}{\alpha + 4}}.
+\end{align*}
+And lastly,
+\begin{equation}
+\lim_{\alpha\to 0}\theta = \arccos\frac{1}{\sqrt{2}} = \frac{\pi}{4}
+\end{equation}
+
 
 \end{document}
