@@ -130,14 +130,57 @@ where $E_1 = \gamma(v_1)mc^2$ and $E_2 = \gamma(v_2)mc^2$. Since $v_2 = 0$, $\ga
 \begin{align}
 \frac{E_1 + E_2}{c} &= \frac{E_3}{c} \nonumber \\
 E_1 + E_2 &= E_3 \nonumber \\
-R_3 =  \gamma mc^2 + mc^2 &= (1 + \gamma)mc^2.
+E = E_3 =  \gamma mc^2 + mc^2 &= (1 + \gamma)mc^2.
 \end{align}
 
 Similarly, the momentum of the compounded particle must be
 \begin{equation}
-\vb{p}_3 = \vb{p}_1 = \gamma m\vb{v}_3 
+P = \vb{p}_3 = \vb{p}_1 = \gamma m\vb{v}_1 = \gamma m v 
 \end{equation}
 
+To find the mass $M$ of the compounded particle, one can use the energy-momentum relations
+\begin{align*}
+E^2 &= (pc)^2 + (Mc^2)^2 \\
+\rightarrow M^2c^4 &= E^2 - p^2c^2 =(1+\gamma)^2m^2c^4 - \gamma^2m^2v^2c^2 \\
+M^2 &= (1 + 2\gamma + \gamma^2)m^2 - \gamma^2m^2v^2c^{-2} \\
+M^2 &= \left[2\gamma + 1 + \gamma^2\left(1-\frac{v^2}{c^2}\right) \right] \\
+M^2 & = m^2 (2\gamma + 2) = m^2 2(\gamma + 1)
+\end{align*}
+\begin{equation}
+\label{eq:compoundmass}
+M = m \sqrt{2(\gamma + 1)}.
+\end{equation}
+Notice that in the non-relativistic case, where $v<<c$, $\gamma\to 1$ and $M = 2m$.
 
+The velocity $V$ of the compounded particle can be found by the inverse of the specific Lorentz factor
+\begin{equation}
+\label{eq:compoundvelocity1}
+\gamma_V = \frac{1}{\sqrt{1-\frac{V^2}{c^2}}},\ \rightarrow\ V = c\sqrt{1-\gamma_V^2}.
+\end{equation}
+Now to find $\gamma(V)$ expressed in some other way. The goal is to find the velocity $V$ as a function of variables that describe the first particle. There are two expressions for the energy of the compounded particle
+\begin{align*}
+E &= \gamma_V Mc^2 \\
+E &= (\gamma + 1)mc^2,
+\end{align*}
+combining these, and inserting the expression for $M$ from equation \ref{eq:compoundmass} yields
+\begin{equation}
+\gamma_V m(2(\gamma + 1)) = (\gamma + 1)mc^2 \ \rightarrow \ \gamma_V = \frac{\gamma + 1}{\sqrt{2(\gamma + 1)}}.
+\end{equation}
+This can now be inserted into \ref{eq:compoundvelocity1}
+\begin{equation}
+V = c\sqrt{1-\gamma_V^{-2}} = c\sqrt{1-\frac{2}{\gamma+1}} = c\sqrt{\frac{\gamma -1}{\gamma + 1}}.
+\end{equation}
+This result is a somewhat complicated function of $v$. One way to get a clearer picture of how the velocity of the compounded particle depends on the velocity of the first particle  in the non-relativistic limit would be to do some sort of series expansion\footnote{After a bit of dabbling with Symbolic Python, it appears that $V\approx\frac{1}{2}v$ in the non-relativistic limit.}. 
+
+The initial kinetic energy of the system is $T_1 = (\gamma-1)mc^2$ and the final kinetic energy is $T_2 = E - Mc^2$. The change in kinetic energy is
+\begin{align}
+\Delta T = T_1 - T_2 	&= (\gamma - 1)mc^2 - (E-Mc^2) \nonumber \\
+						&= (\gamma - 1)mc^2 - (\gamma + 1)mc^2 + Mc^2 \nonumber \\
+						&= (M - 2m)c^2 \nonumber \\
+						&= (\sqrt{2(\gamma + 1)} - 2)mc^2
+\end{align}
+
+\subsection{Elastic Collision}
+In the rest of this exercise the assumption will be that the particles collide elastically instead. This means that the particles don't form a compounded particle after the collision, but remain the same with no change in their masses. The collision happens in such a way that the particles after the collision make the same angle, $\theta$, with the $x$-axis in the lab frame $S$.
 
 \end{document}
