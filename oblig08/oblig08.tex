@@ -3,6 +3,7 @@
 \usepackage{physics}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -251,7 +252,7 @@ And lastly,
 \end{equation}
 
 \section{The Final Frontier}
-The federation starship USS Enterprise NCC-1701 leaves Earth at $t=0$. I heads for the planet Vulcan, $d=4.2$ light years away. initial velocity is $v=0$ relative to Earth. During the first part of the journey, the space ship has constant acceleration $a = g = 9.81 ms^{-1}$. The second part of the journey, starting at time $\tau_0$, measured in proper time of the Enterprise, acceleration is reversed. The Enterprise reaches Vulcan, with final velocity $v=0$. After picking up Ambassador Spock, the USS Enterprise returns in the same fashion, which can be considered part three and four of the journey. The time spent on Vulcan is negligible.
+The federation starship USS Enterprise NCC-1701 leaves Earth at $t=0$. I heads for the planet Vulcan, $d=4.2$ light years away. initial velocity is $v=0$ relative to Earth. During the first part of the journey, the space ship has constant acceleration $a = g = 9.81 ms^{-2}$. The second part of the journey, starting at time $\tau_0$, measured in proper time of the Enterprise, acceleration is reversed. The Enterprise reaches Vulcan, with final velocity $v=0$. After picking up Ambassador Spock, the USS Enterprise returns in the same fashion, which can be considered part three and four of the journey. The time spent on Vulcan is negligible.
 
 During the first part of the journey (part one), the coordinates of the federation starship Enterprise in the Earth fixed reference frame $S$, define a hyperbolic space-time orbit
 \begin{equation}
@@ -261,7 +262,7 @@ t - t_I = \frac{c}{a}\sinh\left(\frac{a}{c}(\tau - \tau_I) \right),
 \end{equation}
 where $x_I$, $t_I$ and $\tau_I$ are constants. Departure space-time event is at $x=t=\tau=0$.
 
-\subsection{Proper Time and Acceleration during Part I}
+\subsection{Proper Time and Acceleration}
 Proper time is characterised by the relation $ds^2 = -c^2d\tau^2$. Now to check if $\tau$ is indeed the proper time of the starship Enterprise,
 \begin{align*}
 dx &= \frac{a}{c}\frac{c^2}{a}\sinh\left(\frac{a}{c}(\tau-\tau_I) \right)d\tau
@@ -340,7 +341,7 @@ x &= \frac{c^2}{g}\cosh\left(\frac{g}{c}\tau\right) - \frac{c^2}{g} \\
 t &= \frac{c}{g}\sinh\left(\frac{g}{c}\tau \right)
 \end{align}
 
-See figure \ref{fig:spacetimepath} for å truly stunning illustration of the space-time path of the starship Enterpise in a Minkowski diagram.
+See figure \ref{fig:spacetimepath} for a truly stunning illustration of the space-time path of the starship Enterpise in a Minkowski diagram.
 
 \begin{figure}
 \centering
