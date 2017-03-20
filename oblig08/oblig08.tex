@@ -250,5 +250,128 @@ And lastly,
 \lim_{\alpha\to 0}\theta = \arccos\frac{1}{\sqrt{2}} = \frac{\pi}{4}
 \end{equation}
 
+\section{The Final Frontier}
+The federation starship USS Enterprise NCC-1701 leaves Earth at $t=0$. I heads for the planet Vulcan, $d=4.2$ light years away. initial velocity is $v=0$ relative to Earth. During the first part of the journey, the space ship has constant acceleration $a = g = 9.81 ms^{-1}$. The second part of the journey, starting at time $\tau_0$, measured in proper time of the Enterprise, acceleration is reversed. The Enterprise reaches Vulcan, with final velocity $v=0$. After picking up Ambassador Spock, the USS Enterprise returns in the same fashion, which can be considered part three and four of the journey. The time spent on Vulcan is negligible.
+
+During the first part of the journey (part one), the coordinates of the federation starship Enterprise in the Earth fixed reference frame $S$, define a hyperbolic space-time orbit
+\begin{equation}
+\label{eq:pathofenterprise}
+x-x_I = \frac{c^2}{a}\cosh\left(\frac{a}{c}(\tau-\tau_I) \right), \quad 
+t - t_I = \frac{c}{a}\sinh\left(\frac{a}{c}(\tau - \tau_I) \right),
+\end{equation}
+where $x_I$, $t_I$ and $\tau_I$ are constants. Departure space-time event is at $x=t=\tau=0$.
+
+\subsection{Proper Time and Acceleration during Part I}
+Proper time is characterised by the relation $ds^2 = -c^2d\tau^2$. Now to check if $\tau$ is indeed the proper time of the starship Enterprise,
+\begin{align*}
+dx &= \frac{a}{c}\frac{c^2}{a}\sinh\left(\frac{a}{c}(\tau-\tau_I) \right)d\tau
+= c\sinh\left(\frac{a}{c}(\tau - \tau_I) \right)d\tau \\
+dt &= \cosh \left((\tau - \tau_I) \right)d\tau,
+\end{align*}
+now
+\begin{align*}
+ds^2 &= dx^2 - d(ct)^2 = dx^2 - c^2dt^2 \\ 
+ 	&= c^2\sinh^2\left(\frac{a}{c}(\tau - \tau_I)\right)d\tau^2 - c^2\cosh^2\left(\frac{a}{c}(\tau - \tau_I)\right)d\tau^2 \\
+ 	&= -c^2d\tau^2,
+\end{align*}
+which means that $\tau$ satisfies the condition for proper time.
+
+Now to find the four-velocity as a function of proper time $\tau$. Four-velocity is given by
+\begin{equation}
+\vb{U} = \frac{dx}{d\tau} = \frac{d}{d\tau}(ct, x, y ,z),
+\end{equation}
+where the elements are 
+\begin{align*}
+\frac{d}{d\tau}ct &= c\frac{d}{dt}t = c\cosh\left(\frac{a}{c}(\tau - \tau_I) \right) \\
+\frac{d}{d\tau} x &= c\sinh\left(\frac{a}{c}(\tau - \tau_I) \right),
+\end{align*}
+which gives 
+\begin{equation}
+\vb{U} = c(\cosh\left(\frac{a}{c}(\tau - \tau_I) \right),\ \sinh\left(\frac{a}{c}(\tau - \tau_I) \right),\ 0,\ 0).
+\end{equation}
+
+The four-acceleration is found in a similar manner
+\begin{equation}
+\vb{A} = \frac{d\vb{U}}{d\tau},
+\end{equation}
+where the components are
+\begin{align*}
+A^0 &= c\frac{a}{c}\sinh\left(\frac{a}{c}(\tau - \tau_I) \right) = a\sinh\left(\frac{a}{c}(\tau - \tau_I) \right) \\
+A^1 &= c\frac{a}{c}\cosh\left(\frac{a}{c}(\tau - \tau_I) \right) = a\cosh\left(\frac{a}{c}(\tau - \tau_I) \right),
+\end{align*}
+giving
+\begin{equation}
+\vb{A} = a(\sinh\left(\frac{a}{c}(\tau - \tau_I) \right),\ \cosh\left(\frac{a}{c}(\tau - \tau_I) \right),\ 0,\ 0)
+\end{equation}
+
+Now to check that the acceleration defined by the path in equations \ref{eq:pathofenterprise}, is $a$. This is quite straight-forward,
+\begin{align*}
+(a^0)^2 &= (A^0)^2 - (A^0)^2 \\
+		&= a^2\cosh^2\left(\frac{a}{c}(\tau - \tau_I) \right) - \sinh^2\left(\frac{a}{c}(\tau - \tau_I) \right) = a^2.
+\end{align*}
+$a^0=a$ as expected.
+
+The space-time-path described by equations \ref{eq:pathofenterprise} is hyperbolic because the equation for the distance between two space-time events described by these equation will from a hyperbola,
+\begin{equation}
+\Delta s^2 = (x-x_I)^2 - c^2(t-t_I) = \frac{c^4}{a^2}.
+\end{equation}
+
+\subsection{Constants for the Journey}
+We must have that $x(\tau=0)=t(\tau=0)=0$ and $v(t=0)=0$, this gives
+\begin{align}
+x_I &= -\frac{c^2}{a}\cosh\left(\frac{a}{c}(- \tau_I) \right) \label{eq:poscosh} \\
+t_I &= -\frac{c}{a}\sinh\left(\frac{a}{c}(- \tau_I) \right) \label{eq:timesinh} \\
+v = \frac{dx}{dt} &= \frac{c\sinh\left(\frac{a}{c}(\tau - \tau_I) \right)d\tau}{\cosh\left(\frac{a}{c}(\tau - \tau_I) \right)d\tau} \nonumber \\ 
+v	&= c\tanh\left(\frac{a}{c}(\tau - \tau_I) \right) \label{eq:velocitytanh}.
+\end{align}
+Using equation \ref{eq:velocitytanh},
+\begin{align}
+v(t=0) = c\tanh\left(\frac{a}{c}(- \tau_I) \right) &= -c\tanh \left(\tau_I\frac{a}{c} \right) = 0 \nonumber \\
+\rightarrow \tau_I &= \frac{c}{s}\arctan(0) = 0
+\end{align}
+this can the be inserted into \ref{eq:poscosh} and \ref{eq:timesinh} to get the constants of the space-time path
+\begin{align}
+x_I &= -\frac{c^2}{a}\cosh\left(\frac{a}{c}(- \tau_I) \right) = -\frac{c^2}{a}\cosh\left( \tau_I\frac{a}{c}) \right) = -\frac{c^2}{a} \\
+t_I &= -\frac{c}{a}\sinh\left(\frac{a}{c}(- \tau_I) \right) = -\frac{c^2}{a}\sinh\left( -\tau_I\frac{a}{c}) \right) = 0,
+\end{align}
+this in turn gives
+\begin{align}
+x &= \frac{c^2}{g}\cosh\left(\frac{g}{c}\tau\right) - \frac{c^2}{g} \\
+t &= \frac{c}{g}\sinh\left(\frac{g}{c}\tau \right)
+\end{align}
+
+See figure \ref{fig:spacetimepath} for å truly stunning illustration of the space-time path of the starship Enterpise in a Minkowski diagram.
+
+\begin{figure}
+\centering
+	\includegraphics[width = 0.65\textwidth]{enterprise.jpg}
+	\caption{The space-time path of the federation starship Enterprise.}
+	\label{fig:spacetimepath}
+\end{figure}
+
+\subsection{The Time of the Journey}
+$\tau_0$ is at $x=\frac{d}{2}$, this gives
+\begin{align*}
+\frac{d}{2} &= \frac{c^2}{g}\cosh\left(\frac{g}{c}\tau_0 \right) \\
+\cosh\left(\frac{g}{c}\tau_0 \right) &= \frac{g}{c^2}\left(\frac{d}{2} + \frac{c^2}{g} \right) \\
+\tau_0 &= \frac{c}{g}\cosh^{-1}\left(\frac{gd}{2c2} + 1\right) \\
+&= \frac{3\times10^8}{9.81}\cosh^{-1}\left(\frac{9.81\cdot4.2\cdot9.5\times10^15}{2\cdot(3\times10^8)^2} +1\right) \\
+&= \frac{3\times10^8}{9.81} \cdot 1.82 \approx 1.76 \text{ years}.
+\end{align*}
+The total time aboard the Enterprise is
+\begin{equation}
+\tau = 4\tau_0 = 7\text{ years},
+\end{equation}
+and the total time on Earth is
+\begin{equation}
+t = 4\frac{c}{g}\sinh\left(\frac{g}{c}\tau_0 \right) = 11.6\text{ years},
+\end{equation}
+which is a bit ridiculous, because warp drive was already invented by the time the Enterprise was build. I guess it is being propelled by impulse power only.
+
+\subsection{The Speed of the Starship}
+The maximum speed of the federation starship enterprise measured from earth can be found from
+\begin{equation}
+v_{\text{max}} = c\tanh \left(\frac{g}{c} \tau_0 \right) = 0.95c 
+\end{equation}
 
 \end{document}
