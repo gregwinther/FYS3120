@@ -63,6 +63,34 @@ g_{\mu\nu}  &= q_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\ \sigma} \\
 \end{align*}
 which only works if $\omega^{\mu}_{\nu}$ is antisymmetric, that is if $\omega^{\mu}_{\ \nu} = -\omega_{\nu}^{\ \mu}$.
 
+\section{Relativistics}
 
+\section{Finding the Shortest Way}
+The shortest path between two points on a sphere. At some contstant radius $r$, some small movement in some direction on the sphere is
+\begin{equation}
+ds^2 = r^2d\theta^2 + r^2\sin^2\theta\phi^2 
+\end{equation}
+inserting for $d\phi = (d\phi/d\theta)d\theta = \dot{\phi}d\theta$ gives
+\begin{equation}
+ds = r\sqrt{1 +\sin^2\theta\dot{\phi}^2}d\theta
+\end{equation}
+A path is given by
+\begin{equation}
+S = \int ds = r \int_{\theta_A}^{\theta_B} \sqrt{1 + \sin^2\theta\dot{\phi}^2}d\theta
+\end{equation}
+where the integrand $F(\theta, \phi, \dot{\phi}) = \sqrt{1 + \sin^2\theta\dot{\phi}^2}$ does not depend explicitly on $\phi$. This implies that $\partial F/ \partial \dot{\phi}$ is constant, yielding
+\begin{equation}
+\frac{\partial F}{\partial \dot{\phi}} = \frac{2\sin^2\theta\dot{\phi}}{\sqrt{1 + \sin^2\theta\dot{\phi}^2}} = C' \rightarrow \frac{\sin^2\theta\dot{\phi}}{\sqrt{1 + \sin^2\theta\dot{\phi}^2}} = C  
+\end{equation}
+This can be rearranged
+\begin{align*}
+C^2 &= \frac{\sin^4\theta\dot{\phi}^2}{1 + \sin^2\theta\dot{\theta}^2} \\
+C^2 + C\sin^2\theta\dot{\phi}^2 &= \sin^4\theta\dot{\phi}^2 \\
+C^2 &= (\sin^4\theta - C\sin^2\theta)\dot{\phi}^2 \\
+\dot{\phi}^2 &= \frac{c^2}{(\sin^4\theta - C\sin^2\theta)} \\
+\dot{\phi} &= \frac{C}{\sin\theta\sqrt{\sin^2 - C}}
+\end{align*}
+
+INTEGRATE!!
 
 \end{document}
