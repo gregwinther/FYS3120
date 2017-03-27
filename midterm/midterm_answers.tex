@@ -1,0 +1,68 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{physics}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\title[FYS3120 Midterm]{Midterm Exam\\
+		\hrulefill \large{ FYS3120 } \hrulefill}
+
+\author[15137]{Candidate 15137}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{A (boring) Lagrangian}
+A non-relativistic particle (no-potential) of mass $m$ is moving in three dimensions.
+
+%% Sensible coordinate system and Lagrangian
+\subsection{}
+
+%% Conjugate momenta, compare with regular
+\subsection{}
+
+%% Cyclic coordinates
+\subsection{}
+
+%% Constants of motion
+\subsection{}
+
+%% Lagrangian for relativistic case. Demonstrate that it is invariant.
+\subsection{}
+
+%% Constant of motion for this Lagrangian
+\subsection{}
+
+%% Show that infinitesimal parameter must be anti-symmetric
+\subsection{}
+Consider a Lorentz transformation where the Lorentz transformation tensor is given as
+\begin{equation}
+\label{eq:lorentztransform}
+L^\mu_{\ \nu} = \delta^{\mu}_{\ \nu} + \omega^{\mu}_{\ \nu}.
+\end{equation}
+
+Any particular Lorentz transformation must leave the line element $ds^2 = dx_{\mu}dx^{\mu}$ invariant,
+\begin{align*}
+g_{\mu\nu}dx'^{\mu}dx'^{\nu} = g_{\mu\nu} L^\mu_{\ \rho} L^\mu_{\ \sigma}dx^\rho dx^\sigma 
+											&= g_{\rho\sigma}dx^\rho dx^\sigma \\
+g_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\sigma}	&= g_{\rho\sigma}
+\end{align*}
+Not to see if the Lorentz transformation in \ref{eq:lorentztransform} statisfies this requirement
+\begin{align*}
+g_{\mu\nu}  &= q_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\ \sigma} \\
+			&= g_{\mu\nu}(\delta^{\mu}_{\ \rho} + \omega^{\mu}_{\ \rho})(\delta^{\nu}_{\ \sigma} + \omega^{\nu}_{\ \sigma}) \\
+			&= (\delta_{\nu\rho} + \omega_{\nu\rho})(\delta^{\nu}_{\ \sigma} + \omega^{\nu}_{\ \sigma}) \\
+			&= \delta_{\nu\rho}\delta^{\nu}_{\ \sigma} + \delta_{\nu\rho}\omega^{\nu}_{\ \sigma} + \omega_{\nu\rho}\delta^{\nu}_{\ \sigma} + \omega_{\nu\rho}\omega^{\nu}_{\ \sigma} \\
+			&= g_{\nu\rho}\delta^{\nu}_{\ \sigma} + g_{\nu\rho}\omega^{\nu}_{\ \sigma} + \omega_{\nu\rho}g^{\nu\gamma} g_{\gamma\sigma} + \omega^2_{\rho\sigma} \\
+			& = \delta_{\rho\sigma} + \omega_{\rho\sigma} + \omega_{\sigma\rho} = g_{\rho\sigma} + g_{\nu\rho}(\omega^{\nu}_{\ \sigma} + \omega_{\sigma}^{\ \nu}),
+\end{align*}
+which only works if $\omega^{\mu}_{\nu}$ is antisymmetric, that is if $\omega^{\mu}_{\ \nu} = -\omega_{\nu}^{\ \mu}$.
+
+
+
+\end{document}
