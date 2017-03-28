@@ -81,10 +81,42 @@ inserting for $\delta x^\mu = \omega^\mu_{\ \nu} x^\nu$ from equation \ref{eq:pa
 \end{equation*} 
 yields
 \begin{equation}
+\label{eq:lagrangeperturbartion}
 \delta L = \left(\frac{\partial L}{\partial x^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}U^\nu \right)x^\mu_{\ \nu},
 \end{equation}
 which is the change in the Lagrangian as a consequence of the change in path.
 
+\subsection{}
+The Euler-Lagrange equations states
+\begin{equation}
+\label{eq:eulerlagrange1}
+\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu} \right) = \frac{\partial L}{\partial x^\mu}.
+\end{equation}
+Inserting \ref{eq:eulerlagrange1} into \ref{eq:lagrangeperturbartion} gives
+\begin{equation}
+\delta L = \left(\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \right) + \frac{\partial L}{\partial U^\mu}\frac{d}{d\tau}x^\nu \right)\omega^\mu_{\ \nu}
+\end{equation}
+using the product rule for derivation backwards gives
+\begin{equation}
+\delta L = \frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu} 
+= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu}
+\end{equation}
+and finally ``letting everything run it's course''
+\begin{align*}
+\delta L &= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu} \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \omega^\mu_{\ \nu} -\frac{\delta L}{\delta U^\mu}x^\nu\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial g^{\rho\mu}U_\rho}x^\nu \omega^\mu_{\ \nu} -\frac{\delta L}{\delta g^{\sigma\mu}U_\sigma}x^\nu\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu g_{\rho\mu} \omega^\mu_{\ \nu} -\frac{\delta L}{\delta U_\sigma}x^\nu g_{\sigma\mu}\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu  \omega_{\rho\nu} -\frac{\delta L}{\delta U_\sigma}x^\nu \omega_{\nu\sigma} \right)		
+\end{align*} 
+changing indices back, writing $\mu$ instead of $\rho,\sigma$, and moving $x^\nu$ to the left of derivatives gives
+\begin{equation*}
+\delta L = \frac{1}{2}\frac{d}{d\tau}\left(x^\nu\frac{\partial L}{\partial U_\mu}  \omega_{\mu\nu} - x^\nu\frac{\delta L}{\delta U_\mu} \omega_{\nu\mu} \right).		
+\end{equation*}
+Switch indices of first term inside the parenthesis\footnote{This is okay because if one were to move $\partial U_\mu$ up from underneath the dividing line the index $\mu$ would change to an upstairs variant. This is the same as saying $\sum_i \sum_j x^i\frac{\partial L}{\partial U_j}\omega_{ji} = \sum_j \sum_i x^i\frac{\partial L}{\partial U_i}\omega_{ij}$}, and one ends up with
+\begin{equation}
+\delta L = \frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\delta L}{\delta U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right)
+\end{equation}
 
 \section{Relativistics}
 
