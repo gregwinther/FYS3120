@@ -3,6 +3,11 @@
 \usepackage{physics}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{color}
+
+\definecolor{photon}{RGB}{0, 100, 0}
+\definecolor{source}{RGB}{0, 200, 50}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -19,7 +24,7 @@
 
 \section{A (boring) Lagrangian}
 A non-relativistic particle (no-potential) of mass $m$ is moving in three dimensions.
-
+black!20gree
 %% Sensible coordinate system and Lagrangian
 \subsection{}
 
@@ -113,12 +118,76 @@ changing indices back, writing $\mu$ instead of $\rho,\sigma$, and moving $x^\nu
 \begin{equation*}
 \delta L = \frac{1}{2}\frac{d}{d\tau}\left(x^\nu\frac{\partial L}{\partial U_\mu}  \omega_{\mu\nu} - x^\nu\frac{\delta L}{\delta U_\mu} \omega_{\nu\mu} \right).		
 \end{equation*}
-Switch indices of first term inside the parenthesis\footnote{This is okay because if one were to move $\partial U_\mu$ up from underneath the dividing line the index $\mu$ would change to an upstairs variant. This is the same as saying $\sum_i \sum_j x^i\frac{\partial L}{\partial U_j}\omega_{ji} = \sum_j \sum_i x^i\frac{\partial L}{\partial U_i}\omega_{ij}$}, and one ends up with
+Switch indices of first term inside the parenthesis\footnote{This is okay because if one were to move $\partial U_\mu$ up from underneath the dividing line the index $\mu$ would change to an upstairs variant. This is the same as saying $\sum_i \sum_j x^i\frac{\partial L}{\partial U_j}\omega_{ji} = \sum_j \sum_i x^i\frac{\partial L}{\partial U_i}\omega_{ij}$}, and one ends up with an alternative expression for $\delta L$,
 \begin{equation}
 \delta L = \frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\delta L}{\delta U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right)
 \end{equation}
 
 \section{Relativistics}
+Two particles with mass $m$ and a photon is sent out from a source at the same time and in the positive $x$-direction in rest frame $S$ of the source. The massive particles are moving with constant velocity $v_1$ and $v_2>v_1$ in this frame. Figure \ref{fig:minkowski1} shows a Minkowski space-time diagram of the two particles, the photon and the source in the rest frame of the source $S$ and that of the slowest of the particles $S'$. 
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+
+	% Time lines
+	\draw[-, dashed, color=red](-4.5,-4.5)--(4.5, 4.5);
+	\draw[-, dashed, color=red](-4.5, 4.5)--(4.5, -4.5);
+	
+	% S' (Boost) coordinate system	
+	\draw[->, color=gray] (-5, -1)--(5, 1) node[above]{$x'$};	
+	\draw[->, color=gray] (-1, -5)--(1, 5) node[right]{$ct'$};
+
+	% S	Coordinate system
+	\draw[->, thick] (-5, 0)--(5, 0) node[right]{$x$};
+	\draw[->, thick] (0, -5)--(0, 5) node[above]{$ct$};
+	
+	% Particle 1
+	\draw[->, thick, color=blue] (0,0)--(0.6,3) node[left]{\small{1}};
+	
+	% Particle 2
+	\draw[->, thick, color=blue] (0,0)--(1,3.2) node[right]{\small{2}};
+	
+	% Photon
+	\draw[->, thick, color=photon] (0,0)--(4, 4) node[left]{\small{$\gamma$}};
+	
+	% Source
+	\draw[->, thick, color=source] (0,0)--(0, 2) node[left]{\small{Source}};
+	
+\end{tikzpicture}
+\caption{Minkowski space-time diagram of two massive particles (velocities $v_1$ and $v_2>v_1$) and a photon ($\gamma$) sent out from a source at origin in rest frame $S$. Rest frame $S'$ is that of particle 1.}
+\label{fig:minkowski1}
+\end{figure}
+
+For an infinitesimal change in position coordinates we have
+\begin{align*}
+dx'  &= \gamma(dx - v_1dt) = \gamma(u_2-v_1)dt \\
+dt'  &= \gamma(dt - \frac{v_1}{c^2}dx) = \gamma(1 - \frac{v_2v_1}{c^2})
+\end{align*}
+and from this follows that
+\begin{equation}
+\label{eq:boostvelocitychange}
+v_2' = \frac{dx'}{dt'} = \frac{v_2-v_1}{1-\frac{v_2v_1}{c^2}}
+\end{equation}
+
+The difference in rapidity of the two massive particles in the two different rest frames are
+\begin{align}
+S: &\quad \Delta\chi = \tanh^{-1}\left(\frac{v_2}{c}\right) - \tanh^{-1}\left(\frac{v_1}{c}\right) \\
+S':&\quad \Delta\chi' = \tanh^{-1}\left(\frac{v'_2}{c}\right) - \tanh^{-1}\left(\frac{v'_1}{c}\right) = \tanh^{-1}\left(\frac{v'_2}{c}\right)
+\end{align}
+Rapidity differences should be unchanged by boosts no matter the reference frames, so
+\begin{align*}
+\tanh^{-1}\left(\frac{v_2}{c}\right) - \tanh^{-1}\left(\frac{v_1}{c}\right) &= \tanh^{-1}\left(\frac{v'_2}{c}\right) \\
+\tanh^{-1}\left(\frac{\frac{v_2}{c}-\frac{v_1}{c}}{1-\frac{v_2v_1}{c^2}} \right) &= \tanh^{-1}\left(\frac{v'_2}{c}\right) \\
+\tanh^{-1}\left(\frac{1}{c}\frac{v_2-v_1}{1-\frac{v_2v_1}{c^2}} \right) &= \tanh^{-1}\left(\frac{v'_2}{c}\right),
+\end{align*}
+inserting \ref{eq:boostvelocitychange} gives
+\begin{align*}
+\tanh^-1\left(\frac{v'_2}{c} \right) &= \tanh^-1\left(\frac{v'_2}{c} \right) \\
+\chi &= \chi'.
+\end{align*}
+In conclusion, the rapidity difference is the same in the two rest frames $S$ and $S$.
+
 
 \section{Finding the Shortest Way}
 The shortest path between two points on a sphere. At some contstant radius $r$, some small movement in some direction on the sphere is
