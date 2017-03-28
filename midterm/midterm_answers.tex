@@ -63,6 +63,29 @@ g_{\rho\sigma}  &= q_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\ \sigma} \\
 \end{align*}
 which only works if $\omega^{\mu}_{\nu}$ is antisymmetric, that is if $\omega^{\mu}_{\ \nu} = -\omega_{\nu}^{\ \mu}$.
 
+\subsection{}
+A small Lorentz transformation between two reference frames changes the path $x^\mu(\tau)$ of a particle according to
+\begin{equation}
+\label{eq:pathperturbation}
+\delta x^\mu(\tau) = x'^\mu(\tau) - x^\mu(\tau) = \omega^\mu_{\ \nu}x^\nu(\tau).
+\end{equation}
+This corresponds to a perturbation in the Lagrangian.
+
+The variation of the Lagrangian is
+\begin{equation*}
+\delta L = \frac{\partial L}{\partial x^\mu} \delta x^\mu + \frac{\partial L}{\partial U^\mu} \delta U^\mu
+\end{equation*}
+inserting for $\delta x^\mu = \omega^\mu_{\ \nu} x^\nu$ from equation \ref{eq:pathperturbation} and 
+\begin{equation*}
+\delta U^\mu = \delta \frac{d x^\mu}{d t} = \frac{d}{d\tau}(\delta x^\mu) = \omega^\mu_{\ \nu}U^\nu 
+\end{equation*} 
+yields
+\begin{equation}
+\delta L = \left(\frac{\partial L}{\partial x^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}U^\nu \right)x^\mu_{\ \nu},
+\end{equation}
+which is the change in the Lagrangian as a consequence of the change in path.
+
+
 \section{Relativistics}
 
 \section{Finding the Shortest Way}
