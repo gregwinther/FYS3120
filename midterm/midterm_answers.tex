@@ -24,18 +24,80 @@
 
 \section{A (boring) Lagrangian}
 A non-relativistic particle (no-potential) of mass $m$ is moving in three dimensions.
-black!20gree
+
 %% Sensible coordinate system and Lagrangian
 \subsection{}
+A normal (boring), Cartesian coordinate system will do fine to study this problem in the first instance. One needs three coordinates to accurately describe the particle, and as there are no constraints on the particle, these three coordinates $x$, $y$ and $z$ are also the generalised coordinates.
+
+The kinetic energy of the particle is given by
+\begin{equation}
+\label{eq:travail1}
+T = \frac{1}{2}mv^2
+\end{equation}
+where $v = \abs{\vb{v}} = \sqrt{v_x^2 + v_y^2 + v_z^2} = \sqrt{\dot{x}^2 + \dot{y}^2 + \dot{z}^2}$, such that equation \ref{eq:travail1} becomes
+\begin{equation}
+T = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2)
+\end{equation}
+there is no potential, so the Lagrangian is simply
+\begin{equation}
+L = T - V = T = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) = \frac{1}{2}mv^2
+\end{equation}
 
 %% Conjugate momenta, compare with regular
 \subsection{}
+The conjugate momenta are
+\begin{align*}
+p_x &= \frac{\partial L}{\partial \partial \dot{x}} = m\dot{x} \\
+p_y &= \frac{\partial L}{\partial \partial \dot{y}} = m\dot{y} \\
+p_z &= \frac{\partial L}{\partial \partial \dot{z}} = m\dot{z}, 
+\end{align*}
+or rather
+\begin{equation}
+p_v = \frac{\partial L}{\partial \vb{v}} = mv,
+\end{equation}
+which is exactly the same as the regular mechanical momentum.
 
 %% Cyclic coordinates
 \subsection{}
+The position of the particle are cyclic coordinates, since
+\begin{align*}
+\frac{\partial L}{\partial x} = 0 \\
+\frac{\partial L}{\partial y} = 0 \\
+\frac{\partial L}{\partial z} = 0 
+\end{align*}
+alternatively
+\begin{equation}
+\frac{\partial L}{\partial \vb{r}} = \vb{0}.
+\end{equation}
+
+Only the position $\vb{r}$ varies with time, but the Lagrangian, interpreted as the physical situation, remains unchanged. This means that the initial value for the position does not determine the path of the particle. 
 
 %% Constants of motion
 \subsection{}
+The Euler-Lagrange for this system equation is
+\begin{equation}
+\frac{\partial L}{\partial \vb{r}} - \frac{d}{dt}\frac{\partial}{\partial\dot{\vb{r}}} = 0.
+\end{equation}
+Since $\partial L / \partial \vb{r} = 0$, then
+\begin{equation*}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{\vb{r}}} = 0,
+\end{equation*}
+and therefore the conjugate momentum $m\dot{\vb{r}}=m\vb{v}$ must be a constant of motion.
+
+It now follows that the particle must move in a straight line such that
+\begin{equation}
+\vb{r} = \vb{r}_0 + \vb{v}t.
+\end{equation}
+My hunch is that the angular momentum of the particle must also be conserved,
+\begin{align*}
+\vb{L} = \vb{r} \times \vb{p} &= \vb{r}_0 \times \vb{p} \\
+(\vb{r}_0 + \vb{v}t) \times \vb{p} &= \vb{r}_0 \times \vb{p} \\
+\vb{r}_0 \times \vb{p} + \vb{v}t \times \vb{p} &= \vb{r}_0 \times \vb{p} \\
+\vb{r}_0 \times \vb{p} &= \vb{r}_0 \times \vb{p}
+\end{align*}
+where $\vb{v}t \times \vb{p} = 0$ because $\vb{v}$ and $\vb{p}$ are parallel. This means that the system is invariant under a rotation.
+
+In conclusion, the conserved quantities are the momentum $\vb{p}$ and the angular momentum $\vb{L}$. Said in another way, this system can has both a translational and a rotational symmetry. Because of these two symmetric properties the system must have two corresponding quantities whose values are conserved in time\footnote{This last bit was an informal statement of Emmy Noether's theorem.}.
 
 %% Lagrangian for relativistic case. Demonstrate that it is invariant.
 \subsection{}
@@ -146,13 +208,13 @@ Two particles with mass $m$ and a photon is sent out from a source at the same t
 	\draw[->, thick, color=blue] (0,0)--(0.6,3) node[left]{\small{1}};
 	
 	% Particle 2
-	\draw[->, thick, color=blue] (0,0)--(1,3.2) node[right]{\small{2}};
+	\draw[->, thick, color=blue] (0,0)--(1,3) node[right]{\small{2}};
 	
 	% Photon
 	\draw[->, thick, color=photon] (0,0)--(4, 4) node[left]{\small{$\gamma$}};
 	
 	% Source
-	\draw[->, thick, color=source] (0,0)--(0, 2) node[left]{\small{Source}};
+	\draw[->, thick, color=source] (0,0)--(0, 3) node[left]{\small{Source}};
 	
 \end{tikzpicture}
 \caption{Minkowski space-time diagram of two massive particles (velocities $v_1$ and $v_2>v_1$) and a photon ($\gamma$) sent out from a source at origin in rest frame $S$. Rest frame $S'$ is that of particle 1.}
