@@ -101,9 +101,64 @@ In conclusion, the conserved quantities are the momentum $\vb{p}$ and the angula
 
 %% Lagrangian for relativistic case. Demonstrate that it is invariant.
 \subsection{}
+For any mechanical system there exist a certain integral $S$, called the action, which has minimum value for the actual motion, so that its variation is zero: $\delta S = 0$. To determine the action for a free particle, the integral must not depend on choice of reference system, because it must be invariant under Lorentz transformations. It follows that it must depend on a scalar. The action is
+\begin{equation}
+\label{eq:action1}
+S = -k \int_a^b ds,
+\end{equation}
+where $k$ is a constant, $\int_a^b$ is the integral along the world line of the particles between two points $a$ and $b$, and $ds$ is a small displacement, and also a scalar of the right kind - being Lorentz invariant. The integral has a negative sign because this is the obvious way to ensure it has a minimum. 
+
+The action integral can be represented as an integral with respect to time instead
+\begin{equation}
+S = \int_{t_1}^{t_2} Ldt,
+\end{equation}
+where $L$ is the Lagrangian of the mechanical system.
+
+Now, a small detour. The the invariance of intervals gives
+\begin{equation*}
+ds^2 = c^2dt^2-dx^2-dy^2-dz^2=c^2dt'^2,
+\end{equation*}
+from  which
+\begin{equation*}
+dt' = dt\sqrt{1-\frac{dx^2+dy^2+dz^2}{c^2dt^2}}.
+\end{equation*}
+Furthermore,
+\begin{equation*}
+\frac{dx^2 + dy^2+dz^2}{dt^2} = v^2,
+\end{equation*}
+therefore
+\begin{equation}
+\label{eq:threetwo}
+dt' = \frac{ds}{c} = dt\sqrt{1-\frac{v^2}{c^2}}
+\end{equation}
+
+Equation \ref{eq:threetwo} can be insterted into \ref{eq:action1} to give
+\begin{equation}
+S = - \int_{t_1}^{t_2} k c\sqrt{1-\frac{v^2}{c^2}}dt.
+\end{equation}
+Consequently, the Lagrangian of the free particle is $L = -kc\sqrt{1-v^2/c^2}$. One can expand $L$ in powers of $v/c$, ignoring higher order terms.
+\begin{equation*}
+L = -kc\sqrt{1-\frac{v^2}{c^2}} \approx -kc + \frac{kv^2}{2c}.
+\end{equation*}
+Constant terms in the Lagrangian do not affect the equations of motion and can be omitted. Compared with the classical expression $L = mv^2/2$, the constant must be $k=mc$.
+
+The Lagrangian is
+\begin{equation}
+\label{eq:firstrelativisticlagrancanarian}
+L = -mc^2\sqrt{1-\frac{v^2}{c^2}} = -\frac{mc^2}{\gamma}
+\end{equation}
 
 %% Constant of motion for this Lagrangian
 \subsection{}
+In the relativistic Lagrangian in equation \ref{eq:firstrelativisticlagrancanarian}, the position does not appear. Consequently, from the Lagrange-Euler equation
+\begin{equation*}
+\frac{\partial L}{\partial \vb{r}} = 0 \to \frac{d}{dt}\frac{\partial L}{\partial \vb{r}} = 0.
+\end{equation*}
+In other words, the conjugate momentum is a constant of motion. The conjugate momentum will take the expected form
+\begin{equation}
+\frac{\partial L}{\partial \vb{v}} = \frac{\partial}{\partial \vb{v}}\left(-mc^2\sqrt{1-\frac{\vb{v}^2}{c^2}} \right) = mc^2\frac{1}{\sqrt{1-\frac{\vb{v}^2}{c^2}}}\left(-\frac{v}{c^2}\right) = m\vb{v}\gamma,
+\end{equation}
+which is the usual way to write relativistic momentum (on non four-vector form).
 
 %% Show that infinitesimal parameter must be anti-symmetric
 \subsection{}
@@ -211,7 +266,7 @@ Two particles with mass $m$ and a photon is sent out from a source at the same t
 	\draw[->, thick, color=blue] (0,0)--(1,3) node[right]{\small{2}};
 	
 	% Photon
-	\draw[->, thick, color=photon] (0,0)--(4, 4) node[left]{\small{$\gamma$}};
+	\draw[->, thick, color=photon] (0,0)--(3, 3) node[left]{\small{$\gamma$}};
 	
 	% Source
 	\draw[->, thick, color=source] (0,0)--(0, 3) node[left]{\small{Source}};
