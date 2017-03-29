@@ -11,8 +11,8 @@
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
-\title[FYS3120 Midterm]{Midterm Exam\\
-		\hrulefill \large{ FYS3120 } \hrulefill}
+\title[FYS3120 Midterm]{Midterm Exam\\	 
+		\hrulefill \small{ FYS3120 } \hrulefill}
 
 \author[15137]{Candidate 15137}
 
@@ -331,7 +331,34 @@ C^2 &= (\sin^4\theta - C\sin^2\theta)\dot{\phi}^2 \\
 \dot{\phi}^2 &= \frac{C^2}{(\sin^4\theta - C\sin^2\theta)} \\
 \dot{\phi} &= \frac{C}{\sin\theta\sqrt{\sin^2 - C}}
 \end{align*}
+Now this will be integrated from the starting point $(\theta_0, \phi_0) = (\pi/2,0)$ to the stop point $(\theta,\phi)$
+\begin{align*}
+\phi - \phi_0 &= \int_{\theta_0}^{\theta} \frac{r}{\sin\vartheta\sqrt{\sin^2\vartheta-r^2}}d\vartheta \\
+\phi &= \int_{\frac{\pi}{2}}^{\theta} \frac{r}{\sin\vartheta\sqrt{\sin^2\vartheta-r^2}}d\vartheta.
+\end{align*}
+The integrand can be simplified by making the substitution $\sin^{-2}\vartheta = \csc^2\vartheta = 1 + \cot^2\vartheta$,
+\begin{align*}
+\frac{r}{\sin\vartheta\sqrt{\sin^2\vartheta-r^2}} &= \frac{r}{\sin^2\vartheta\sqrt{1 - \frac{r^2}{\sin^2\vartheta}}} \\
+= \frac{\csc^2\vartheta r}{\sqrt{1-(1+\cot^2\vartheta)r^2}} &= \frac{\csc^2\vartheta}{\sqrt{1-r^2-r^2\cot^2\vartheta}}
+\end{align*}
+Then substitute for
+\begin{align*}
+u = \frac{r}{\sqrt{1-r^2}}\cot\vartheta &\leftrightarrow \cot\vartheta = \frac{u}{r}\sqrt{1-r^2} \\
+\frac{du}{d\vartheta} = -\frac{r}{\sqrt{1-r^2}}\csc^2\vartheta &\leftrightarrow \csc^2\vartheta d\vartheta = -\frac{\sqrt{1-r^2}}{r}du,
+\end{align*}
+which gives
+\begin{align*}
+\phi &= \int_{\frac{\pi}{2}}^{\theta} \frac{rd\vartheta}{\sqrt{1-r^2-r^2\cot^2\vartheta}} \\
+	&= \int_{u(\frac{\pi}{2})}^{u(\theta)} -\frac{\sqrt{1-r^2} r}{r\sqrt{1-r^2-r^2\cot^2\vartheta}} \\
+	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-r^2}du}{\sqrt{1-r^2 - u^2(1-r^2)}} \\
+	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-r^2} du}{\sqrt{1-r^2-u^2+u^2r^2}} \\
+	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-r^2} du}{\sqrt{1-r^2}\sqrt{1-u^2}}\\
+	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{du}{\sqrt{1-u^2}}	
+\end{align*}
+Karl Rottmann can tell me that $\frac{d}{dx}\arccos x = -(1-x^2)^{\frac{1}{2}}$ (p.130)
+\begin{equation}
+\phi(\theta) = \arccos(u(\theta)) - \arccos(u(\frac{\pi}{2})) = \arccos(\frac{r}{\sqrt{1-r^2}}\cot\theta)
+\end{equation}
 
-INTEGRATE!!
 
 \end{document}
