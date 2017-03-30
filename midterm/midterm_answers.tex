@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{color}
+\usepackage{cancel}
 
 \definecolor{photon}{RGB}{0, 100, 0}
 \definecolor{source}{RGB}{0, 200, 50}
@@ -95,7 +96,7 @@ My hunch is that the angular momentum of the particle must also be conserved,
 \vb{r}_0 \times \vb{p} + \vb{v}t \times \vb{p} &= \vb{r}_0 \times \vb{p} \\
 \vb{r}_0 \times \vb{p} &= \vb{r}_0 \times \vb{p}
 \end{align*}
-where $\vb{v}t \times \vb{p} = 0$ because $\vb{v}$ and $\vb{p}$ are parallel. This means that the system is invariant under a rotation.
+where $\vb{v}t \times \vb{p} = 0$ because $\vb{v}$ and $\vb{p}$ are parallel\footnote{This proof holds when the particle is viewed from any position \emph{not} on then path of the particle, such that $\vb{r} \not\parallel \vb{p}$.}. This means that the system is invariant under a rotation.
 
 In conclusion, the conserved quantities are the momentum $\vb{p}$ and the angular momentum $\vb{L}$. Said in another way, this system can has both a translational and a rotational symmetry. Because of these two symmetric properties the system must have two corresponding quantities whose values are conserved in time\footnote{This last bit was an informal statement of Emmy Noether's theorem.}.
 
@@ -180,10 +181,10 @@ g_{\rho\sigma}  &= q_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\ \sigma} \\
 			&= g_{\mu\nu}(\delta^{\mu}_{\ \rho} + \omega^{\mu}_{\ \rho})(\delta^{\nu}_{\ \sigma} + \omega^{\nu}_{\ \sigma}) \\
 			&= (\delta_{\nu\rho} + \omega_{\nu\rho})(\delta^{\nu}_{\ \sigma} + \omega^{\nu}_{\ \sigma}) \\
 			&= \delta_{\nu\rho}\delta^{\nu}_{\ \sigma} + \delta_{\nu\rho}\omega^{\nu}_{\ \sigma} + \omega_{\nu\rho}\delta^{\nu}_{\ \sigma} + \omega_{\nu\rho}\omega^{\nu}_{\ \sigma} \\
-			&= g_{\nu\rho}\delta^{\nu}_{\ \sigma} + g_{\nu\rho}\omega^{\nu}_{\ \sigma} + \omega_{\nu\rho}g^{\nu\gamma} g_{\gamma\sigma} + \omega^2_{\rho\sigma} \\
+			&= g_{\nu\rho}\delta^{\nu}_{\ \sigma} + g_{\nu\rho}\omega^{\nu}_{\ \sigma} + \omega_{\nu\rho}g^{\nu\gamma} g_{\gamma\sigma} + \cancel{\omega^2_{\rho\sigma}} \\
 			& = \delta_{\rho\sigma} + \omega_{\rho\sigma} + \omega_{\sigma\rho} = g_{\rho\sigma} + g_{\nu\rho}(\omega^{\nu}_{\ \sigma} + \omega_{\sigma}^{\ \nu}),
 \end{align*}
-which only works if $\omega^{\mu}_{\nu}$ is antisymmetric, that is if $\omega^{\mu}_{\ \nu} = -\omega_{\nu}^{\ \mu}$.
+which only works if $\omega^{\mu}_{\ \nu}$ is antisymmetric, that is if $\omega^{\mu}_{\ \nu} = -\omega_{\nu}^{\ \mu}$.
 
 \subsection{}
 A small Lorentz transformation between two reference frames changes the path $x^\mu(\tau)$ of a particle according to
@@ -199,14 +200,14 @@ The variation of the Lagrangian is
 \end{equation*}
 inserting for $\delta x^\mu = \omega^\mu_{\ \nu} x^\nu$ from equation \ref{eq:pathperturbation} and 
 \begin{equation*}
-\delta U^\mu = \delta \frac{d x^\mu}{d t} = \frac{d}{d\tau}(\delta x^\mu) = \omega^\mu_{\ \nu}U^\nu 
+\delta U^\mu = \delta \frac{d x^\mu}{d t} = \frac{d}{d\tau}(\delta x^\mu) = \omega^\mu_{\ \nu}U^\nu, 
 \end{equation*} 
-yields
+which yields
 \begin{equation}
 \label{eq:lagrangeperturbartion}
-\delta L = \left(\frac{\partial L}{\partial x^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}U^\nu \right)x^\mu_{\ \nu},
+\delta L = \left(\frac{\partial L}{\partial x^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}U^\nu \right)x^\mu_{\ \nu}.
 \end{equation}
-which is the change in the Lagrangian as a consequence of the change in path.
+This is the change in the Lagrangian as a consequence of the change in path.
 
 \subsection{}
 The Euler-Lagrange equations states
@@ -226,19 +227,44 @@ using the product rule for derivation backwards gives
 and finally ``letting everything run it's course''
 \begin{align*}
 \delta L &= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu} \\
-		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \omega^\mu_{\ \nu} -\frac{\delta L}{\delta U^\mu}x^\nu\omega_\nu^{\ \mu} \right) \\
-		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial g^{\rho\mu}U_\rho}x^\nu \omega^\mu_{\ \nu} -\frac{\delta L}{\delta g^{\sigma\mu}U_\sigma}x^\nu\omega_\nu^{\ \mu} \right) \\
-		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu g_{\rho\mu} \omega^\mu_{\ \nu} -\frac{\delta L}{\delta U_\sigma}x^\nu g_{\sigma\mu}\omega_\nu^{\ \mu} \right) \\
-		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu  \omega_{\rho\nu} -\frac{\delta L}{\delta U_\sigma}x^\nu \omega_{\nu\sigma} \right)		
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \omega^\mu_{\ \nu} -\frac{\partial L}{\partial U^\mu}x^\nu\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial g^{\rho\mu}U_\rho}x^\nu \omega^\mu_{\ \nu} -\frac{\partial L}{\partial g^{\rho\mu}U_\rho}x^\nu\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu g_{\rho\mu} \omega^\mu_{\ \nu} -\frac{\partial L}{\partial U_\rho}x^\nu g_{\rho\mu}\omega_\nu^{\ \mu} \right) \\
+		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U_\rho}x^\nu  \omega_{\rho\nu} -\frac{\partial L}{\partial U_\rho}x^\nu \omega_{\nu\rho} \right)		
 \end{align*} 
-changing indices back, writing $\mu$ instead of $\rho,\sigma$, and moving $x^\nu$ to the left of derivatives gives
+changing indices back, writing $\mu$ instead of $\rho$, and moving $x^\nu$ to the left of the derivatives gives
 \begin{equation*}
 \delta L = \frac{1}{2}\frac{d}{d\tau}\left(x^\nu\frac{\partial L}{\partial U_\mu}  \omega_{\mu\nu} - x^\nu\frac{\delta L}{\delta U_\mu} \omega_{\nu\mu} \right).		
 \end{equation*}
-Switch indices of first term inside the parenthesis\footnote{This is okay because if one were to move $\partial U_\mu$ up from underneath the dividing line the index $\mu$ would change to an upstairs variant. This is the same as saying $\sum_i \sum_j x^i\frac{\partial L}{\partial U_j}\omega_{ji} = \sum_j \sum_i x^i\frac{\partial L}{\partial U_i}\omega_{ij}$}, and one ends up with an alternative expression for $\delta L$,
+Switch indices of first term inside the parenthesis\footnote{This is okay because if one were to move $\partial U_\mu$ up from underneath the dividing line the index $\mu$ would change to an upstairs variant. This is the same as saying $\sum_i \sum_j x^i\frac{\partial L}{\partial U_j}\omega_{ji} = \sum_j \sum_i x^i\frac{\partial L}{\partial U_i}\omega_{ij}$}, and one ends up with an alternative expression for $\delta L$
 \begin{equation}
-\delta L = \frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\delta L}{\delta U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right)
+\delta L = \frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\partial L}{\partial U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right)
 \end{equation}
+
+\subsection{}
+For the path change to be invariant, there must, according to Hamilton's principle, be no change in the action 
+\begin{equation}
+\delta S = 0.
+\end{equation}
+This means that
+\begin{equation}
+\delta S = \int_{\tau_1}^{\tau_2}\delta L d\tau = \int_{\tau_1}^{\tau_2}\frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\partial L}{\partial U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right) d\tau = 0,
+\end{equation}
+which is true if
+\begin{equation}
+\delta L = \frac{1}{2}\omega_{\nu\mu} \frac{d}{d\tau}\left(x^\mu\frac{\partial L}{\partial U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} \right) = 0,
+\end{equation}
+or alternatively if
+\begin{equation}
+\label{eq:angulartensor1}
+x^\mu\frac{\partial L}{\partial U_\nu} - x^\nu\frac{\partial L}{\partial U_\mu} = C
+\end{equation}
+where $C$ is a constant. Since $\frac{\partial L}{\partial U^\mu} = p^\mu$, then equation \ref{eq:angulartensor1} is the tensor form of the angular momentum
+\begin{equation}
+\ell^{\mu\nu} = x^\mu p^\nu - x^\nu p^\mu,
+\end{equation}
+leading one to conclude that the angular momentum is conserved because of the invariance under Lorentz transformation.
+
 
 \section{Relativistics}
 Two particles with mass $m$ and a photon is sent out from a source at the same time and in the positive $x$-direction in rest frame $S$ of the source. The massive particles are moving with constant velocity $v_1$ and $v_2>v_1$ in this frame. Figure \ref{fig:minkowski1} shows a Minkowski space-time diagram of the two particles, the photon and the source in the rest frame of the source $S$ and that of the slowest of the particles $S'$. 
@@ -276,15 +302,23 @@ Two particles with mass $m$ and a photon is sent out from a source at the same t
 \label{fig:minkowski1}
 \end{figure}
 
-For an infinitesimal change in position coordinates we have
+The relativistic formula for transition between two inertial frames is given by
+\begin{equation}
+x' = \gamma(x-vt), \quad t' = \gamma(t-\frac{v}{c^2}x),
+\end{equation}
+therefore, for an infinitesimal change in position coordinates we have
 \begin{align*}
-dx'  &= \gamma(dx - v_1dt) = \gamma(u_2-v_1)dt \\
-dt'  &= \gamma(dt - \frac{v_1}{c^2}dx) = \gamma(1 - \frac{v_2v_1}{c^2})
+dx'  &= \gamma(dx - vdt) = \gamma(u-v)dt \\
+dt'  &= \gamma(dt - \frac{v}{c^2}dx) = \gamma(1 - \frac{uv}{c^2})
 \end{align*}
 and from this follows that
+\begin{equation*}
+u' = \frac{dx'}{dt'} = \frac{u-v}{1-\frac{uv}{c^2}},
+\end{equation*}
+or specifically to this situation
 \begin{equation}
 \label{eq:boostvelocitychange}
-v_2' = \frac{dx'}{dt'} = \frac{v_2-v_1}{1-\frac{v_2v_1}{c^2}}
+v_2' = \frac{dx'}{dt'} = \frac{v_2-v_1}{1-\frac{v_2v_1}{c^2}}.
 \end{equation}
 
 The difference in rapidity of the two massive particles in the two different rest frames are
