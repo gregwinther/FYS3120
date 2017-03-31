@@ -54,7 +54,7 @@ p_z &= \frac{\partial L}{\partial \partial \dot{z}} = m\dot{z},
 \end{align*}
 or rather
 \begin{equation}
-p_v = \frac{\partial L}{\partial \vb{v}} = mv,
+p_v = \frac{\partial L}{\partial \vb{v}} = m\vb{v},
 \end{equation}
 which is exactly the same as the regular mechanical momentum.
 
@@ -71,11 +71,11 @@ alternatively
 \frac{\partial L}{\partial \vb{r}} = \vb{0}.
 \end{equation}
 
-Only the position $\vb{r}$ varies with time, but the Lagrangian, interpreted as the physical situation, remains unchanged. This means that the initial value for the position does not determine the path of the particle. 
+The position $\vb{r}$ varies with time, but the Lagrangian, interpreted as the physical situation, remains unchanged. This means that the initial value for the position does not determine the path of the particle. 
 
 %% Constants of motion
 \subsection{}
-The Euler-Lagrange for this system equation is
+The Euler-Lagrange equations for this system equation is
 \begin{equation}
 \frac{\partial L}{\partial \vb{r}} - \frac{d}{dt}\frac{\partial}{\partial\dot{\vb{r}}} = 0.
 \end{equation}
@@ -85,7 +85,7 @@ Since $\partial L / \partial \vb{r} = 0$, then
 \end{equation*}
 and therefore the conjugate momentum $m\dot{\vb{r}}=m\vb{v}$ must be a constant of motion.
 
-It now follows that the particle must move in a straight line such that
+It follows that the particle must move in a straight line, as the particle has constant velocity and is not acted upon by a force, such that
 \begin{equation}
 \vb{r} = \vb{r}_0 + \vb{v}t.
 \end{equation}
@@ -98,7 +98,7 @@ My hunch is that the angular momentum of the particle must also be conserved,
 \end{align*}
 where $\vb{v}t \times \vb{p} = 0$ because $\vb{v}$ and $\vb{p}$ are parallel\footnote{This proof holds when the particle is viewed from any position \emph{not} on then path of the particle, such that $\vb{r} \not\parallel \vb{p}$.}. This means that the system is invariant under a rotation.
 
-In conclusion, the conserved quantities are the momentum $\vb{p}$ and the angular momentum $\vb{L}$. Said in another way, this system can has both a translational and a rotational symmetry. Because of these two symmetric properties the system must have two corresponding quantities whose values are conserved in time\footnote{This last bit was an informal statement of Emmy Noether's theorem.}.
+In conclusion, the some of conserved quantities are the momentum $\vb{p}$ and the angular momentum $\vb{L}$. Said in another way, this system can has both a translational and a rotational symmetry. Because of these two symmetric properties the system must have two corresponding quantities whose values are conserved in time\footnote{This last bit was an informal statement of Emmy Noether's theorem.}. Other conserved quantities are, but may not be limited to; mass, energy, charge etc.
 
 %% Lagrangian for relativistic case. Demonstrate that it is invariant.
 \subsection{}
@@ -107,7 +107,7 @@ For any mechanical system there exist a certain integral $S$, called the action,
 \label{eq:action1}
 S = -k \int_a^b ds,
 \end{equation}
-where $k$ is a constant, $\int_a^b$ is the integral along the world line of the particles between two points $a$ and $b$, and $ds$ is a small displacement, and also a scalar of the right kind - being Lorentz invariant. The integral has a negative sign because this is the obvious way to ensure it has a minimum. 
+where $k$ is some constant, $\int_a^b$ is the integral along the world line of the particles between two points $a$ and $b$, and $ds$ is a small displacement, and also a scalar of the right kind - being Lorentz invariant. The integral has a negative sign because this is the obvious way to ensure it has a minimum. 
 
 The action integral can be represented as an integral with respect to time instead
 \begin{equation}
@@ -143,23 +143,29 @@ L = -kc\sqrt{1-\frac{v^2}{c^2}} \approx -kc + \frac{kv^2}{2c}.
 \end{equation*}
 Constant terms in the Lagrangian do not affect the equations of motion and can be omitted. Compared with the classical expression $L = mv^2/2$, the constant must be $k=mc$.
 
-The Lagrangian is
+In conclusion, a Lorentz invariant Lagrangian for a free particle is
 \begin{equation}
 \label{eq:firstrelativisticlagrancanarian}
-L = -mc^2\sqrt{1-\frac{v^2}{c^2}} = -\frac{mc^2}{\gamma}
+L = -mc^2\sqrt{1-\frac{v^2}{c^2}} = -\frac{mc^2}{\gamma}.
 \end{equation}
 
 %% Constant of motion for this Lagrangian
 \subsection{}
-In the relativistic Lagrangian in equation \ref{eq:firstrelativisticlagrancanarian}, the position does not appear. Consequently, from the Lagrange-Euler equation
+In the relativistic Lagrangian in equation \ref{eq:firstrelativisticlagrancanarian}, the position does not appear explicitly. Consequently, from the Lagrange-Euler equation
 \begin{equation*}
 \frac{\partial L}{\partial \vb{r}} = 0 \to \frac{d}{dt}\frac{\partial L}{\partial \vb{r}} = 0.
 \end{equation*}
-In other words, the conjugate momentum is a constant of motion. The conjugate momentum will take the expected form
+one may gather that the conjugate momentum is a constant of motion. The conjugate momentum will take the expected form
 \begin{equation}
 \frac{\partial L}{\partial \vb{v}} = \frac{\partial}{\partial \vb{v}}\left(-mc^2\sqrt{1-\frac{\vb{v}^2}{c^2}} \right) = mc^2\frac{1}{\sqrt{1-\frac{\vb{v}^2}{c^2}}}\left(-\frac{v}{c^2}\right) = m\vb{v}\gamma,
 \end{equation}
-which is the usual way to write relativistic momentum (on non four-vector form).
+which is the usual way to write relativistic momentum.
+
+The four-vector momentum is given by
+\begin{equation}
+\underline{\vb{P}} = (\frac{E}{c}, \vb{p}) = (\gamma mc, \gamma m\vb{v}).
+\end{equation}
+Since the energy of a freely moving particle relates to momentum by $E^2 = c^2\vb{p}^2 + m^2c^2$, the four-vector momentum contains only conserved quantities and is a constant of motion.
 
 %% Show that infinitesimal parameter must be anti-symmetric
 \subsection{}
@@ -173,9 +179,9 @@ Any particular Lorentz transformation must leave the line element $ds^2 = dx_{\m
 \begin{align*}
 g_{\mu\nu}dx'^{\mu}dx'^{\nu} = g_{\mu\nu} L^\mu_{\ \rho} L^\mu_{\ \sigma}dx^\rho dx^\sigma 
 											&= g_{\rho\sigma}dx^\rho dx^\sigma \\
-g_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\sigma}	&= g_{\rho\sigma}
+\rightarrow g_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\sigma}	&= g_{\rho\sigma}
 \end{align*}
-To see if the Lorentz transformation in \ref{eq:lorentztransform} is invariant is must statisfy this requirement
+For the Lorentz transformation in equation \ref{eq:lorentztransform} to be invariant is must satisfy the requirement above
 \begin{align*}
 g_{\rho\sigma}  &= q_{\mu\nu}L^{\mu}_{\ \rho}L^{\nu}_{\ \sigma} \\
 			&= g_{\mu\nu}(\delta^{\mu}_{\ \rho} + \omega^{\mu}_{\ \rho})(\delta^{\nu}_{\ \sigma} + \omega^{\nu}_{\ \sigma}) \\
@@ -224,7 +230,7 @@ using the product rule for derivation backwards gives
 \delta L = \frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu} 
 = \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu}
 \end{equation}
-and finally ``letting everything run it's course''
+and finally ``letting everything run its course''
 \begin{align*}
 \delta L &= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu + \frac{\partial L}{\partial U^\mu}x^\nu \right)\omega^\mu_{\ \nu} \\
 		&= \frac{1}{2}\frac{d}{d\tau}\left(\frac{\partial L}{\partial U^\mu}x^\nu \omega^\mu_{\ \nu} -\frac{\partial L}{\partial U^\mu}x^\nu\omega_\nu^{\ \mu} \right) \\
@@ -343,13 +349,13 @@ In conclusion, the rapidity difference is the same in the two rest frames $S$ an
 \section{Finding the Shortest Way}
 The shortest path between two points on a sphere. At some contstant radius $r$, some small movement in some direction on the sphere is
 \begin{equation}
-ds^2 = r^2d\theta^2 + r^2\sin^2\theta\phi^2 
+ds^2 = r^2d\theta^2 + r^2\sin^2\theta d\phi^2 
 \end{equation}
 inserting for $d\phi = (d\phi/d\theta)d\theta = \dot{\phi}d\theta$ gives
 \begin{equation}
 ds = r\sqrt{1 +\sin^2\theta\dot{\phi}^2}d\theta
 \end{equation}
-A path is given by
+A path on the sphere is given by
 \begin{equation}
 S = \int ds = r \int_{\theta_A}^{\theta_B} \sqrt{1 + \sin^2\theta\dot{\phi}^2}d\theta
 \end{equation}
@@ -370,28 +376,33 @@ Now this will be integrated from the starting point $(\theta_0, \phi_0) = (\pi/2
 \phi - \phi_0 &= \int_{\theta_0}^{\theta} \frac{C}{\sin\vartheta\sqrt{\sin^2\vartheta-C^2}}d\vartheta \\
 \phi &= \int_{\frac{\pi}{2}}^{\theta} \frac{C}{\sin\vartheta\sqrt{\sin^2\vartheta-C^2}}d\vartheta.
 \end{align*}
-The integrand can be simplified by making the substitution $\sin^{-2}\vartheta = \csc^2\vartheta = 1 + \cot^2\vartheta$,
+The integrand can be simplified by making the substitution\footnote{These are simply trigonometric identities.} $\sin^{-2}\vartheta = \csc^2\vartheta = 1 + \cot^2\vartheta$,
 \begin{align*}
 \frac{C}{\sin\vartheta\sqrt{\sin^2\vartheta-C^2}} &= \frac{C}{\sin^2\vartheta\sqrt{1 - \frac{C^2}{\sin^2\vartheta}}} \\
 = \frac{C\csc^2\vartheta}{\sqrt{1-(1+\cot^2\vartheta)C^2}} &= \frac{C\csc^2\vartheta}{\sqrt{1-C^2-C^2\cot^2\vartheta}}
 \end{align*}
-Then substitute for
+The reason for rewriting the integrand in this manner is to be able to solve the integral by a substitution. Notice that $\partial (A \cot\vartheta) / \partial \vartheta = -A \csc^2\vartheta$. Inserting $u= A\cot\vartheta$ and $du = -A\csc^2\vartheta d\vartheta$ gives
+\begin{align*}
+\frac{C\csc^\vartheta d\vartheta}{\sqrt{1-C^2-C^2\cot^2\vartheta}}
+= -\frac{C udu}{A\sqrt{1- C^2 - C^2\left(\frac{u}{A} \right)^2}},
+\end{align*}
+setting $A = C/\sqrt{1-C^2}$ gives a very nice expression,
+\begin{align*}
+-\frac{C udu}{A\sqrt{1- C^2 - C^2\left(\frac{u}{A} \right)^2}} 
+&= \frac{-\cancel{C}\sqrt{1-C^2} udu}{\cancel{C} \sqrt{1-C^2-\frac{\cancel{C^2}u^2(1-C^2)}{\cancel{C^2}}}} \\
+= -\frac{\sqrt{1-C^2}udu}{\sqrt{1-C^2-u^2-u^2C^2}} &= -\frac{\cancel{\sqrt{1-C^2}}udu}{\cancel{\sqrt{1-C^2}}\sqrt{1-u^2}}.
+\end{align*}
+Karl Rottmann can tell me that $\partial(\arccos x)/\partial x = -(1-x^2)^{\frac{1}{2}}$ (p.130), so the proper substitution to make is
 \begin{align*}
 u = \frac{C}{\sqrt{1-C^2}}\cot\vartheta &\leftrightarrow \cot\vartheta = \frac{u}{C}\sqrt{1-C^2} \\
 \frac{du}{d\vartheta} = -\frac{C}{\sqrt{1-C^2}}\csc^2\vartheta &\leftrightarrow \csc^2\vartheta d\vartheta = -\frac{\sqrt{1-C^2}}{C}du,
 \end{align*}
 which gives
-\begin{align*}
-\phi &= \int_{\frac{\pi}{2}}^{\theta} \frac{C\csc^2\vartheta d\vartheta}{\sqrt{1-C^2-C^2\cot^2\vartheta}} \\
-	&= \int_{u(\frac{\pi}{2})}^{u(\theta)} -\frac{\sqrt{1-C^2} \csc^2\varthetaC}{C\sqrt{1-C^2-C^2\cot^2\vartheta}} \\
-	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-C^2}du}{\sqrt{1-C^2 - u^2(1-C^2)}} \\
-	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-C^2} du}{\sqrt{1-C^2-u^2+u^2C^2}} \\
-	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{\sqrt{1-C^2} du}{\sqrt{1-C^2}\sqrt{1-u^2}}\\
-	&= -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{du}{\sqrt{1-u^2}}	
-\end{align*}
-Karl Rottmann can tell me that $\frac{d}{dx}\arccos x = -(1-x^2)^{\frac{1}{2}}$ (p.130) which gives a nice explicit expression
-\begin{equation}
-\phi(\theta) = \arccos(u(\theta)) - \arccos(u(\frac{\pi}{2})) = \arccos(\frac{C}{\sqrt{1-C^2}}\cot\theta).
-\end{equation}
+\begin{align}
+\phi &= \int_{\frac{\pi}{2}}^{\theta} \frac{C\csc^2\vartheta d\vartheta}{\sqrt{1-C^2-C^2\cot^2\vartheta}} = -\int_{u(\frac{\pi}{2})}^{u(\theta)} \frac{du}{\sqrt{1-u^2}}	\nonumber \\
+\phi(\theta) &= \arccos(u(\theta)) - \arccos(u(\frac{\pi}{2})) = \arccos(\frac{C}{\sqrt{1-C^2}}\cot\theta),
+\end{align}
+a nice, explicit expression for $\phi$ as a function of $\theta$. 
 
+A special solution is needed where $\theta = \pi/2$ (or $\phi = 0$) because $\cot\theta = \cos\theta / \sin\theta$ and if $\theta = 0$, $\sin\theta = 0$ which would give $0$ in the denominator. I have chosen to ignore such special solutions.
 \end{document}
