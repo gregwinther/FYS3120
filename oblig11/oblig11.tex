@@ -1,0 +1,40 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{physics}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\title{Electrodynamics \\
+	\hrulefill \small{ FYS3120: Problem Set 11 } \hrulefill}
+
+\author[Winther-Larsen]{Sebastian G. Winther-Larsen}
+
+\begin{document}
+
+\maketitle
+
+\section{Simple Lagrangian Dynamics}
+
+A non-relativistic particle, with electric charge $q$ and mass $m$ moves in a magnetic dipole field, given by the vector potential
+\begin{equation}
+\va{A} = \frac{\mu_0}{4\pi r^3}(\va{\mu} \cp \va{r}),
+\end{equation}
+where $\va{\mu}$ is the magnetic dipole moment of a static charge distribution centered at the origin.
+
+\subsection{Lagrangian}
+The Lagrangian is given by
+\begin{equation}
+\label{eq:lagrangian1}
+L = T + q\va{v} \vdot \va{A}.
+\end{equation}
+The kinetic energy is simply $T = \frac{1}{2}m\va{v}^2$ while the potential is
+\begin{align*}
+q\va{v} \vdot \va{A} = \frac{q\mu_0}{4\pi r^3}\va{v}(\va{\mu} \cp \va{r})
+\end{align*}
+
+
+
+
+\end{document}
