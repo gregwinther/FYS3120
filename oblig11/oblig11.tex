@@ -6,10 +6,12 @@
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
-\title{Electrodynamics \\
+\title[Electrodynamics]{Electrodynamics \\
 	\hrulefill \small{ FYS3120: Problem Set 11 } \hrulefill}
 
 \author[Winther-Larsen]{Sebastian G. Winther-Larsen}
+
+\date{\today}
 
 \begin{document}
 
@@ -31,10 +33,18 @@ L = T + q\va{v} \vdot \va{A}.
 \end{equation}
 The kinetic energy is simply $T = \frac{1}{2}m\va{v}^2$ while the potential is
 \begin{align*}
-q\va{v} \vdot \va{A} = \frac{q\mu_0}{4\pi r^3}\va{v}(\va{\mu} \cp \va{r})
+q\va{v} \vdot \va{A} &= \frac{q\mu_0}{4\pi r^3}\va{v}\vdot(\va{\mu} \cp \va{r}) \\
+					 &= \frac{q\mu_0}{4\pi r^3}\va{\mu}\vdot(\va{r}\cp\va{v}) \\
+					 &= \frac{q\mu_0}{4\pi m r^3}\va{\mu}\vdot\va{\ell},
 \end{align*}
+using a vector triple product identity and $\va{\ell} = m\va{r}\cp\va{v}$. Inserting the parts into \ref{eq:lagrangian1} the Lagrangican becomes
+\begin{equation}
+\label{eq:lagranrian2}
+L = \frac{1}{2}m\va{v}^2 + \frac{q\mu_0}{4\pi m r^3}\va{\mu}\vdot\va{\ell}.
+\end{equation}
 
-
+\subsection{Alternative Lagrangian}
+We now make the assumption that the magnetic dipole moment is oriented along the $z$-axis and that the particle moves in the $(x,y)$-plane. In the following, $r = \abs{\va{r}}$ and  the angle $\phi$ between the $x$-axis and the position vector $va{r}$ are chosen as generalised coordinates.
 
 
 \end{document}
