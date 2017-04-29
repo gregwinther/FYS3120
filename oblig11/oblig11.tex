@@ -37,7 +37,7 @@ q\va{v} \vdot \va{A} &= \frac{q\mu_0}{4\pi r^3}\va{v}\vdot(\va{\mu} \cp \va{r}) 
 					 &= \frac{q\mu_0}{4\pi r^3}\va{\mu}\vdot(\va{r}\cp\va{v}) \\
 					 &= \frac{q\mu_0}{4\pi m r^3}\va{\mu}\vdot\va{\ell},
 \end{align*}
-using a vector triple product identity and $\va{\ell} = m\va{r}\cp\va{v}$. Inserting the parts into \ref{eq:lagrangian1} the Lagrangican becomes
+using the cyclic invariance of the vector triple product and $\va{\ell} = m\va{r}\cp\va{v}$. Inserting the parts into \ref{eq:lagrangian1} the Lagrangican becomes
 \begin{equation}
 \label{eq:lagranrian2}
 L = \frac{1}{2}m\va{v}^2 + \frac{q\mu_0}{4\pi m r^3}\va{\mu}\vdot\va{\ell}.
@@ -45,6 +45,43 @@ L = \frac{1}{2}m\va{v}^2 + \frac{q\mu_0}{4\pi m r^3}\va{\mu}\vdot\va{\ell}.
 
 \subsection{Alternative Lagrangian}
 We now make the assumption that the magnetic dipole moment is oriented along the $z$-axis and that the particle moves in the $(x,y)$-plane. In the following, $r = \abs{\va{r}}$ and  the angle $\phi$ between the $x$-axis and the position vector $va{r}$ are chosen as generalised coordinates.
+
+With the magnetic dipole moment oriented along the z-axis, 
+\begin{align*}
+\va{\mu}\vdot\va{\ell} = \abs{\va{\mu}}\ell_z = \abs{\va{\mu}}(\va{r}\cp\va{p})_z = \abs{\va{\mu}}m(x\dot{y}-y\dot{x}),
+\end{align*} 
+where $x = r\cos\phi$ and $y = r\sin\phi$. This gives
+\begin{align*}
+x\dot{y} - y\dot{x} &= r\cos\phi(\dot{r}\sin\phi + r\dot{\phi}\cos\phi) \\
+					&- r\sin\phi(\dot{r}\cos\phi - r\dot{\phi}\sin\phi) \\
+					&= r^2\phi\cos^2\phi + r^2\phi\sin^2\phi = r^2\phi,
+\end{align*} 
+similarly
+\begin{align*}
+\dot{x} &= \dot{r}\cos\phi - r\dot{\phi}\sin\phi \\
+\dot{y} &= \dot{r}\sin\phi + r\dot{\phi}\cos\phi \\
+\dot{x}^2 &= \dot{r}^2\cos^2\phi - 2r\dot{r}\dot{\phi}\cos\phi\sin\phi + r^2\dot{\phi}^2\sin^2\phi \\
+\dot{y}^2 &= \dot{r}^2\sin^2\phi + 2r\dot{r}\dot{\phi}\cos\phi\sin\phi + r^2\dot{\phi}^2\cos^2\phi \\
+\dot{v}^2 &= \dot{x}^2 + \dot{y}^2 = \dot{r}^2 + r^2\dot{\phi}^2.
+\end{align*}
+The Lagrangian with generalised coordinates becomes
+\begin{equation}
+\label{eq:lagrangian3}
+L = \frac{1}{2}m(\dot{r}^2 + \dot{r}^2\dot{\phi}^2) + \frac{q\mu_0}{4\pi mr^3}\abs{\va{\mu}}mr^2\dot{\phi} = \frac{1}{2}m(\dot{r}^2 + \dot{r}^2\dot{\phi}^2) + \lambda\frac{\dot{\phi}}{r},
+\end{equation}
+where $\lambda \equiv q\mu_0\abs{\va{\mu}}/4\pi$. 
+
+The canonical momentum $p_\phi$ conjugate to $\phi$ becomes
+\begin{equation}
+p_\phi = \frac{\partial L}{\partial \dot{\phi}} = m\dot{r}^2\dot{\phi} + \frac{\lambda}{r}
+\end{equation}
+$\phi$ is a cyclic coordinate, because the Lagrangian in equation \ref{eq:lagrangian3} does not explicityly depend on $\phi$. This implies that the conjugate momentum $p_\phi$ is constant. 
+
+The Lagrangian in equation \ref{eq:lagrangian3} does not depend exlicitly on time $t$. This means that the Hamiltonian must be conserved
+\begin{equation}
+H = \dot{r}p_r + \dot{\phi}p_\phi - L = m\dot{r}^2 + m\dot{r}^2\dot{\phi}^2 + \lambda\frac{\dot{\phi}}{r} - L = \frac{1}{2}m(\dot{r}^2 + \dot{r}^2\dot{\phi}^2) = T.
+\end{equation}
+Since the Hamiltonian equals the kinetic energy and the Hamiltonian is conserved, the kinetic energy is conserved by the magnetic field.
 
 
 \end{document}
