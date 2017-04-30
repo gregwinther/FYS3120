@@ -73,7 +73,8 @@ where $\lambda \equiv q\mu_0\abs{\va{\mu}}/4\pi$.
 
 The canonical momentum $p_\phi$ conjugate to $\phi$ becomes
 \begin{equation}
-p_\phi = \frac{\partial L}{\partial \dot{\phi}} = m\dot{r}^2\dot{\phi} + \frac{\lambda}{r}
+\label{eq:conjmomphi}
+p_\phi = \frac{\partial L}{\partial \dot{\phi}} = mr^2\dot{\phi} + \frac{\lambda}{r}
 \end{equation}
 $\phi$ is a cyclic coordinate, because the Lagrangian in equation \ref{eq:lagrangian3} does not explicityly depend on $\phi$. This implies that the conjugate momentum $p_\phi$ is constant. 
 
@@ -82,6 +83,23 @@ The Lagrangian in equation \ref{eq:lagrangian3} does not depend exlicitly on tim
 H = \dot{r}p_r + \dot{\phi}p_\phi - L = m\dot{r}^2 + m\dot{r}^2\dot{\phi}^2 + \lambda\frac{\dot{\phi}}{r} - L = \frac{1}{2}m(\dot{r}^2 + \dot{r}^2\dot{\phi}^2) = T.
 \end{equation}
 Since the Hamiltonian equals the kinetic energy and the Hamiltonian is conserved, the kinetic energy is conserved by the magnetic field.
+
+\subsection{Lagrange's equation}
+Lagrange's equation for $r$ is
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{r}}\right) - \frac{\partial L}{\partial r} = \dot{p}_r - \frac{\partial L}{\partial r} = m\ddot{r} - mr\dot{\phi}^2 + \lambda\frac{\dot{\phi}}{r^2} = 0.
+\end{equation}
+Here one can eliminate $\dot{\phi}$ by inserting $\dot{\phi} = \frac{p_\phi}{mr^2} - \frac{\lambda}{mr^3}$ found from equation \ref{eq:conjmomphi}. This yields
+\begin{align*}
+& m\ddot{r} - mr\left(\frac{p_\phi}{mr^2} + \frac{\lambda}{mr^3} \right) - \frac{\lambda}{r^2}\left(\frac{p_\phi}{mr^2} - \frac{\lambda}{mr^3}\right) \\
+=& m\ddot{r} - mr\left(\frac{p_\phi^2}{m^2r^4} - \frac{2p_\phi\lambda}{m^2r^5} + \frac{\lambda^2}{m^2r^6}\right) + \frac{p_\phi\lambda}{mr^4} - \frac{\lambda^2}{mr^5} \\
+=& m\ddot{r} - \frac{p_\phi^2}{mr^3} + \frac{2p_\phi\lambda}{mr^4} - \frac{\lambda^2}{mr^5} + \frac{p_\phi\lambda}{mr^4} - \frac{\lambda^2}{mr^5} = 0
+\end{align*}
+\begin{equation}
+\label{eq:beforersquared}
+\rightarrow m\ddot{r} - \frac{p_\phi^2}{mr^3} + \frac{3p_\phi\lambda}{mr^4} - \frac{2\lambda^2}{mr^5} = 0.
+\end{equation}
+We are interested in the behaviour of $\dot{r}^2$ one can multiply the expression in \ref{eq:beforersquared} with $\dot{r}$. This gives
 
 
 \end{document}
