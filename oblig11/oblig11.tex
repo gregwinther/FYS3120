@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{physics}
+\usepackage{graphicx}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -123,5 +124,61 @@ which can be rearranged to
 \dot{r}^2 + r^2\dot{\phi}^2 = \dot{r}_0^2 + r_0^2\dot{\phi}_0^2.
 \end{equation}
 We see again that the kinetic energy is conserved.
+
+\section{Rectangular Current Loop}
+Figure \ref{fig:currentloop} shows a rectangular current loop ABCD. In the loop's rest frame, $S$, the loop as length $a$ in the $x$-direction and width $b$ in $y$-direction. The current is $I$ and the charge density is zero. The electric dipole moment $\va{p}$ and the magnetic dipole moment $\va{m}$ for a given current distribution is defined by the following
+\begin{equation}
+\va{p} = \int\va{r}\rho(\va{r})d^3r, \quad \va{m} = \frac{1}{2}\int(\va{r}\cp\va{j}(\va{r}))d^3r
+\end{equation}
+
+\subsection{Electric and Magnetic Dipole Moment in $S$}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{currentloop.png}
+	\caption{Illustration of current loop.}
+	\label{fig:currentloop}
+\end{figure}
+
+Since the charge density in rest frame $S$ is zero, $\rho(\va{r}) = 0$, the electric dipole moment must also be zero, $\va{p} = 0$.
+
+The current along every edge of the rectangle will be $j\va{n}$, where $\va{n}$ is a unit vector pointing along the edge in question.
+\begin{align*}
+\text{AB}: \va{j} =j\va{e}_x &\quad \text{BC}: \va{j} =j\va{e}_y \\
+\text{CD}: \va{j} =-j\va{e}_x &\quad \text{DA}: \va{j} =-j\va{e}_x.
+\end{align*}
+Given a point $\va{r}$ along the AB segment,
+\begin{equation}
+\label{eq:cross1}
+\va{r}\cp\va{j}(\va{r}) = (x\va{e}_x + y\va{e}_y)\cp(j\va{e}_x) = -yj\va{e}_z,
+\end{equation}
+along the BC segment,
+\begin{equation}
+\label{eq:cross2}
+\va{r}\cp\va{j}(\va{r}) = (x\va{e}_x + y\va{e}_y)\cp(j\va{e}_y) = xj\va{e}_z,
+\end{equation}
+along the CD segment,
+\begin{equation}
+\label{eq:cross3}
+\va{r}\cp\va{j}(\va{r}) = (x\va{e}_x + y\va{e}_y)\cp(-j\va{e}_x) = yj\va{e}_z,
+\end{equation}
+and along the DA segment
+\begin{equation}
+\label{eq:cross4}
+\va{r}\cp\va{j}(\va{r}) = (x\va{e}_x + y\va{e}_y)\cp(-j\va{e}_y) = -xj\va{e}_z,
+\end{equation}
+
+It is a reasonable approximation to use the factor $\Delta$, which is the cross-sectional area of the current wire, instead of integrating in directions perpendicular to the direction of the conductor. Then the coordinate $\va{r}$ is simply the centre of the conductor. Employing these assumptions/approximations and assigning the lower left corner of the rectangle coordinates $(x_0,y_0)$ and using the results from equations \ref{eq:cross1} \ref{eq:cross2}, \ref{eq:cross3} and \ref{eq:cross4} the magnetic dipole moment is
+\begin{align*}
+\va{m} &= \frac{1}{2}j\Delta\va{e}_z \left(
+-\int_{x_0}^{y_0+a} y_0dx + \int_{y_0}^{y_0+b}(x_0+a)dy +\int_{x_0}^{x_0+a}(y_0+b)dx - \int_{y_0}^{y_0+b}x_0dy
+\right) \\
+&=\frac{1}{2} I (-y_0a + (x_0 + a)b + (y_0 + b)a - x_0b)\va{e}_z \\
+&=abI\va{e}_z.
+\end{align*} 
+Since $\va{a}$ and $\va{b}$ are orthogonal $\va{a} \cp \va{b} = ab\va{e}_z$, which gives
+\begin{equation}
+\va{m} = I\va{a} \cp \va{b}.
+\end{equation}
 
 \end{document}
