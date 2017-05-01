@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{physics}
 \usepackage{graphicx}
+\usepackage{cancel}
 
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
@@ -179,6 +180,47 @@ It is a reasonable approximation to use the factor $\Delta$, which is the cross-
 Since $\va{a}$ and $\va{b}$ are orthogonal $\va{a} \cp \va{b} = ab\va{e}_z$, which gives
 \begin{equation}
 \va{m} = I\va{a} \cp \va{b}.
+\end{equation}
+
+\subsection{Length Contraction}
+Reference frame $S'$ moves at velocity $\va{v}$ to the right, away from the rest frame $S$. Because the width of the loop is orthogonal to the boost, it remains the same, $b' = b$. 
+
+We have the following Lorentz transformations between the positions of the endpoints of the rectangle in the two reference frames
+\begin{align*}
+x_a = \gamma(-vt_a' + x_a') \quad x_a' = \gamma(vt_a + x_a) \\
+x_b = \gamma(-vt_b' + x_b') \quad x_b' = \gamma(vt_b + x_b).
+\end{align*}
+The two endpoints must be measured at the same time in reference frame $S'$ to compute the correct length
+\begin{align*}
+a =x_b - x_a &= \gamma(x_b'- x_a') + \cancel{\gamma v(t_a' - t_b')} \\
+			 &= \gamma(x_b'- x_a') = \gamma a'
+\end{align*}
+which yields
+\begin{equation}
+a = \frac{1}{\gamma}a'.
+\end{equation}
+
+\subsection{Charge of Segments AB and CD}
+In reference frame $S$, the segment AB will have current four-vector $J^\mu = (0, j, 0, 0)$. Lorentz transform to reference frame $S'$, which has velocity $-v$ relative to $S$ gives
+\begin{align*}
+\rho'c = J'^0 = L^0_{\ \nu}J^\nu = \gamma(J^0 + \beta J^1) = \beta\gamma J,
+\end{align*}
+where $\beta = v/c$. Assuming uniform charge density of the conductor segment gives
+\begin{align*}
+\rho = \frac{J^0}{c} = \frac{j\gamma v}{c^2}.
+\end{align*}
+To find the total charge one needs simply to multiply with the volume of this conductor segment in reference frama $S'$, $\abs{\va{a}}\Delta = (1/\gamma)a\Delta$
+\begin{equation}
+Q_{AB}' = V_{AB}'\rho_{AB}' = \frac{1}{\gamma}a\Delta j\gamma \frac{v}{c^2} = I a\frac{v}{c^2}.
+\end{equation}
+
+A similiar computation can be made for conductor segment CD, with current four-vector $J^\mu = (0, -j, 0, 0)$.
+\begin{align*}
+\rho'c &= J'^0 = L^0_{\ \nu} J^\nu = \gamma(J^0+ \beta J^1) = -\gamma\beta j \\
+\rightarrow \rho &= \frac{J'^0}{c} = -\frac{\gamma\beta j}{c} = -\frac{\gamma v j}{c^2} \\
+\end{align*}
+\begin{equation}
+Q_{CD}' = V_{CD}'\rho_{CD}' = -\frac{1}{\gamma}a\Delta \gamma j\frac{ v}{c^2} = -Ia\frac{v}{c^2}
 \end{equation}
 
 \end{document}
