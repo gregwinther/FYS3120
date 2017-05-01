@@ -129,6 +129,7 @@ We see again that the kinetic energy is conserved.
 \section{Rectangular Current Loop}
 Figure \ref{fig:currentloop} shows a rectangular current loop ABCD. In the loop's rest frame, $S$, the loop as length $a$ in the $x$-direction and width $b$ in $y$-direction. The current is $I$ and the charge density is zero. The electric dipole moment $\va{p}$ and the magnetic dipole moment $\va{m}$ for a given current distribution is defined by the following
 \begin{equation}
+\label{eq:edm&mdm}
 \va{p} = \int\va{r}\rho(\va{r})d^3r, \quad \va{m} = \frac{1}{2}\int(\va{r}\cp\va{j}(\va{r}))d^3r
 \end{equation}
 
@@ -207,7 +208,7 @@ In reference frame $S$, the segment AB will have current four-vector $J^\mu = (0
 \end{align*}
 where $\beta = v/c$. Assuming uniform charge density of the conductor segment gives
 \begin{align*}
-\rho = \frac{J^0}{c} = \frac{j\gamma v}{c^2}.
+\rho' = \frac{J'^0}{c} = \frac{j\gamma v}{c^2}.
 \end{align*}
 To find the total charge one needs simply to multiply with the volume of this conductor segment in reference frama $S'$, $\abs{\va{a}}\Delta = (1/\gamma)a\Delta$
 \begin{equation}
@@ -217,10 +218,56 @@ Q_{AB}' = V_{AB}'\rho_{AB}' = \frac{1}{\gamma}a\Delta j\gamma \frac{v}{c^2} = I 
 A similiar computation can be made for conductor segment CD, with current four-vector $J^\mu = (0, -j, 0, 0)$.
 \begin{align*}
 \rho'c &= J'^0 = L^0_{\ \nu} J^\nu = \gamma(J^0+ \beta J^1) = -\gamma\beta j \\
-\rightarrow \rho &= \frac{J'^0}{c} = -\frac{\gamma\beta j}{c} = -\frac{\gamma v j}{c^2} \\
+\rightarrow \rho' &= \frac{J'^0}{c} = -\frac{\gamma\beta j}{c} = -\frac{\gamma v j}{c^2} \\
 \end{align*}
 \begin{equation}
 Q_{CD}' = V_{CD}'\rho_{CD}' = -\frac{1}{\gamma}a\Delta \gamma j\frac{ v}{c^2} = -Ia\frac{v}{c^2}
 \end{equation}
+
+\subsection{Electric and Magnetic Dipole Moment in $S'$}
+Segments AB and CD always have charge densities $\rho = \pm\frac{I}{\Delta}\frac{v}{c^2}$. Inserting this into the $\va{p}$ from \ref{eq:edm&mdm} and assuming a thin conductor by replacing the cross-sectional integration dimensions with $\Delta$ gives
+\begin{align*}
+\va{p}'  &= \int\va{r}\rho(\va{r})d^3r \\
+		&= \frac{I}{\cancel{\Delta}}\frac{v}{c^2}
+		\left[
+		 \cancel{\Delta}\int_{x_0}^{x_0+a}(\cancel{x\va{e}_x} + y_0\va{e}_y)dx 
+		-\cancel{\Delta}\int_{x_0}^{x_0+a}(\cancel{x\va{e}_x} + (y_0 + b)\va{e}_y)dx 
+		\right] \\
+		&= I \frac{v}{c^2}\left(
+		\cancel{y_0 x\Big|_{x_0}^{x_0 + a}}
+		-(\cancel{y_0} + b)x\Big|_{x_0}^{x_0 + a}
+		\right)\va{e}_y \\
+		&= I \frac{v}{c^2}\left(-b(x_0 + a - x_0)\right)\va{e}_y \\
+		&= -I\frac{v}{c^2}ab\va{e}_y
+\end{align*}
+Moreover
+\begin{align*}
+-\frac{1}{c^2}\va{m} \cp \va{v} &= -\frac{1}{c^2}(abI\va{e}_z) \cp (v\va{e}_x) \\
+			&= -\frac{v}{c^2}Iab (\va{e}_z \cp \va{e}_x) \\
+			&= -I \frac{v}{c^2}ab\va{e}_y,
+\end{align*}
+which implies that
+\begin{equation}
+\va{p}' = - \frac{1}{c^2}\va{m} \cp \va{v}
+\end{equation}
+
+In order to calculate the magnetic dipole moment, one needs the current densities for all conductor segments.
+\begin{align*}
+\text{AB:} &\ J = (0, j, 0, 0) \quad j' = J'^1 = \beta\gamma J^0 + \gamma J^1 = \gamma j \\
+\text{CD:} &\ J = (0, -j, 0, 0) \quad j' = J'^1 = \beta\gamma J^0 + \gamma J^1 = -\gamma j.
+\end{align*}
+Segments AB and CD both have current densities $j' = \gamma j$ in $x$-direction. Segments BA and DA have current density $j$ unchanged. However, the width of these conductors are Lorentz-contracted, meaning that the area is reduced by a factor $\gamma^{-1}$, so that $\Delta' = \Delta / \gamma$. Now to compute the magnetic dipole moment in the same manner as before
+\begin{align*}
+\va{m}' &= \frac{1}{2}\va{e}_z\left[
+	\gamma j \Delta \int_{x_0'}^{x_0' + a'} (\cancel{y_0} + b - \cancel{y_0})dx' 
+	j \frac{\Delta}{\gamma} \int_{y_0'}^{y_0' + b'} (\cancel{x_0'} + a - \cancel{x_0'})
+	\right] \\
+	&= \frac{1}{2} j \Delta ab (1 + \gamma^{-2})\va{e}_z = \frac{1}{2} I ab (2 - \beta^2)\va{e}_z = I ab (1 - \frac{\beta^2}{2})\va{e}_z
+\end{align*}
+\begin{equation}
+\va{m}' = \left(1 - \frac{\beta^2}{2} \right)\va{m}
+\end{equation}
+
+\subsection{Current in the Different Segments}
 
 \end{document}
